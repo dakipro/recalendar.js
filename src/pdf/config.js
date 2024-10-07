@@ -48,19 +48,19 @@ export function hydrateFromObject( object ) {
 class PdfConfig {
 	constructor( configOverrides = {} ) {
 		this.year = dayjs().year();
-		this.month = 0;
+		this.month = 9;
 		this.firstDayOfWeek = dayjs.localeData().firstDayOfWeek();
 		this.weekendDays = [ 0, 6 ];
 		this.isLeftHanded = false;
 		this.alwaysOnSidebar = false;
-		this.monthCount = 12;
+		this.monthCount = 3;
 		this.fontFamily = LATO;
 		this.isMonthOverviewEnabled = true;
 		this.habits = [
-			t( 'habits.example1', { ns: 'config' } ),
-			t( 'habits.example2', { ns: 'config' } ),
-			t( 'habits.example3', { ns: 'config' } ),
-			t( 'habits.example4', { ns: 'config' } ),
+			// t( 'habits.example1', { ns: 'config' } ),
+			// t( 'habits.example2', { ns: 'config' } ),
+			// t( 'habits.example3', { ns: 'config' } ),
+			// t( 'habits.example4', { ns: 'config' } ),
 		];
 		this.monthItinerary = [
 			{
@@ -69,7 +69,7 @@ class PdfConfig {
 			},
 			{
 				type: ITINERARY_LINES,
-				value: 2,
+				value: 3,
 			},
 			{
 				type: ITINERARY_ITEM,
@@ -77,13 +77,13 @@ class PdfConfig {
 			},
 			{
 				type: ITINERARY_LINES,
-				value: 50,
+				value: 10,
 			},
 		];
 		this.isWeekOverviewEnabled = true;
 		this.todos = [
-			t( 'todos.example1', { ns: 'config' } ),
-			t( 'todos.example2', { ns: 'config' } ),
+			// t( 'todos.example1', { ns: 'config' } ),
+			// t( 'todos.example2', { ns: 'config' } ),
 		];
 
 		let dayOfWeek = this.firstDayOfWeek;
@@ -110,31 +110,6 @@ class PdfConfig {
 				date: '01-01',
 				value: t( 'special-dates.example1', { ns: 'config' } ),
 				type: HOLIDAY_DAY_TYPE,
-			},
-			{
-				date: '01-01',
-				value: t( 'special-dates.example2', { ns: 'config' } ),
-				type: HOLIDAY_DAY_TYPE,
-			},
-			{
-				date: '01-03',
-				value: t( 'special-dates.example3', { ns: 'config' } ),
-				type: HOLIDAY_DAY_TYPE,
-			},
-			{
-				date: '01-13',
-				value: t( 'special-dates.example4', { ns: 'config' } ),
-				type: EVENT_DAY_TYPE,
-			},
-			{
-				date: '01-13',
-				value: t( 'special-dates.example5', { ns: 'config' } ),
-				type: HOLIDAY_DAY_TYPE,
-			},
-			{
-				date: '01-14',
-				value: t( 'special-dates.example6', { ns: 'config' } ),
-				type: EVENT_DAY_TYPE,
 			},
 		];
 

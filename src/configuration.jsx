@@ -45,11 +45,16 @@ class Configuration extends React.PureComponent {
 
 	constructor( props ) {
 		super( props );
-
 		this.pdfWorker = new Worker(
 			new URL( './worker/pdf.worker.js', import.meta.url ),
 			{ type: 'module' },
 		);
+
+		this.pdfWorker.onerror = ( error ) => {
+			console.error( 'Worker initialization error:', error );
+		};
+
+
 		this.pdfWorker.onmessage = this.handlePdfWorkerMessage;
 	}
 
@@ -258,6 +263,11 @@ class Configuration extends React.PureComponent {
 
 	generatePdf( isPreview ) {
 		this.startTime = new Date();
+
+		this.pdfWorker.onerror = ( error ) => {
+			console.error( 'Worker error:', error );
+		};
+
 		this.pdfWorker.postMessage( {
 			isPreview,
 			language: i18n.language,
@@ -282,10 +292,7 @@ class Configuration extends React.PureComponent {
 		}
 	};
 
-	handlePdfGeneration = ( { blob, url, loading, error } ) => {
-		const { t } = this.props;
-		return loading ? t( 'loading' ) : t( 'download-ready' );
-	};
+
 
 	handleDayItineraryChange = ( event ) => {
 		const newItineraries = [ ...this.state.dayItineraries ];

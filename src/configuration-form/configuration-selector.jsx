@@ -33,6 +33,10 @@ class ConfigurationSelector extends React.Component {
 		status: STATUS_EMPTY,
 	};
 
+	componentDidMount() {
+		this.handleTemplateSelect( { target: { dataset: { template: TEMPLATE_ADVANCED } } } );
+	}
+
 	getDefaultFirstDayOfWeek() {
 		const config = new PdfConfig();
 		return config.firstDayOfWeek;
