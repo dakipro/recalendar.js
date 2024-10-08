@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 
+import { getWeekNumber } from '~/lib/date';
 import {
 	DATE_FORMAT as SPECIAL_DATES_DATE_FORMAT,
 	findByDate,
 	HOLIDAY_DAY_TYPE,
 } from '~/lib/special-dates-utils';
-import { getWeekNumber } from '~/lib/date';
 import Header from '~/pdf/components/header';
 import MiniCalendar, { HIGHLIGHT_WEEK } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
@@ -96,29 +96,33 @@ class WeekOverviewPage extends React.Component {
 		const specialDateKey = day.format( SPECIAL_DATES_DATE_FORMAT );
 		const specialItems = config.specialDates.filter( findByDate( specialDateKey ) );
 		return (
-			<Link
+			<View
 				key={ day.unix() }
 				style={ this.styles.day }
-				src={ '#' + dayPageLink( day, config ) }
 			>
-				<View style={ { flexDirection: 'column' } }>
+
+				<Link
+					style={ { flexDirection: 'column', textDecoration: 'none', color: 'black' } }
+					src={ '#' + dayPageLink( day, config ) }
+				>
 					<View style={ this.styles.dayDate }>
 						<Text style={ this.styles.dayOfWeek }>{day.format( 'dddd' )}</Text>
 						<Text style={ this.styles.shortDate }>{day.format( 'DD MMM' )}</Text>
 					</View>
-					{specialItems.map( ( { id, type, value } ) => (
-						<Text
-							key={ id }
-							style={ [
-								this.styles.specialItem,
-								{ fontWeight: type === HOLIDAY_DAY_TYPE ? 'bold' : 'normal' },
-							] }
-						>
+
+				</Link>
+				{specialItems.map( ( { id, type, value } ) => (
+					<Text
+						key={ id }
+						style={ [
+							this.styles.specialItem,
+							{ fontWeight: type === HOLIDAY_DAY_TYPE ? 'bold' : 'normal' },
+						] }
+					>
 							» {value}
-						</Text>
-					) )}
-				</View>
-			</Link>
+					</Text>
+				) )}
+			</View>
 		);
 	}
 

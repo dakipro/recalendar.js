@@ -14,7 +14,6 @@ class Itinerary extends React.PureComponent {
 		line: {
 			borderBottom: '1 solid #AAA',
 			fontSize: 12,
-			fontWeight: 'bold',
 			height: 20,
 			minHeight: 20,
 			padding: '2 0 0 5',
@@ -37,8 +36,6 @@ class Itinerary extends React.PureComponent {
 		rowTitle: {
 			fontSize: 8,
 			width: 10,
-			textAlign: 'center',
-			writingMode: 'vertical-rl',
 			transform: 'rotate(-90deg)',
 			flexShrink: 0,
 			minHeight: 10,

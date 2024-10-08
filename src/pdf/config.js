@@ -2,7 +2,13 @@ import dayjs from 'dayjs/esm';
 import { t } from 'i18next';
 
 import { wrapWithId } from '~/lib/id-utils';
-import {ITINERARY_ITEM, ITINERARY_LINES, ITINERARY_TABLE, ITINERARY_TEXT_NO_LINE} from '~/lib/itinerary-utils';
+import {
+	ITINERARY_ITEM,
+	ITINERARY_LINES,
+	ITINERARY_NEW_PAGE,
+	ITINERARY_TABLE,
+	ITINERARY_TEXT_NO_LINE
+} from '~/lib/itinerary-utils';
 import {
 	HOLIDAY_DAY_TYPE,
 	EVENT_DAY_TYPE,
@@ -95,26 +101,54 @@ class PdfConfig {
 					value: {
 						rows: 4,
 						columns: 3,
-						columnTitles: ['Health', 'Wealth', 'Relatioships'],
+						columnTitles: ['Health', 'Wealth', 'Relationships'],
 						titles: ['Identity', 'Values', 'Goal', 'Proof'],
 					},
 				},
 				{
 					type: ITINERARY_TEXT_NO_LINE,
-					value: '[ ] Identity (dream team)                               ' +
-						'[ ] Visualise (excellence, procrastination, goals)',
+					value:
+						'[ ] Visualise (excellence, procrastination, goals)        ' +
+						'[ ] Excercise (Yoga, rubber, stretches)           ' +
+						'[ ] Identity (dream team)',
 				},
 				{
 					type: ITINERARY_TEXT_NO_LINE,
-					value: '[ ] Read (Book, course)                                  ' +
-						'[ ] Affirm    (So good they can\'t ignore you)',
+					value:
+						'[ ] Meditate (relax, past, future, enjoy, present)        ' +
+						'[ ] Affirm (So good they can\'t ignore you)     ' +
+						'[ ] Read (Book, course)',
 				},
 				{
-					type: ITINERARY_TEXT_NO_LINE,
-					value: '[ ] Excercise (Yoga, rubber, stretches)           ' +
-						'[ ] Meditate (relax, past, future, enjoy, present)',
+					type: ITINERARY_TABLE,
+					value: {
+						rows: 4,
+						columns: 1,
+						columnTitles: [],
+						titles: ['Morning', 'Maker', 'Manager', 'Evening'],
+					},
 				},
-				{ type: ITINERARY_LINES, value: 5 },
+
+
+				{ type: ITINERARY_NEW_PAGE },
+				{ type: ITINERARY_ITEM, value: 'A moment that I really appreciated today was…' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'A situation or task I handled well today was…' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'Something I realized or learned today was…' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'I could have made today even better if I…' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'Something that could have helped me feel more connected to others would have been…' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'If I was my own high performance coach, I would tell myself this…' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'CLARITY  I knew my “why” and I lived intentionally today _____' },
+				{ type: ITINERARY_ITEM, value: 'ENERGY  I managed my mental and physical energy well _____' },
+				{ type: ITINERARY_ITEM, value: 'NECESSITY I felt it was necessary to be my best and made success a “must” _____' },
+				{ type: ITINERARY_ITEM, value: 'PRODUCTIVITY I worked on things that mattered most today _____' },
+				{ type: ITINERARY_ITEM, value: 'INFLUENCE I guided or treated others well today _____' },
+				{ type: ITINERARY_ITEM, value: 'COURAGE I shared my real self, thoughts and feelings today _____' },
 			];
 
 			const itinerary = {
