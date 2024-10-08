@@ -96,22 +96,22 @@ class PdfConfig {
 						rows: 4,
 						columns: 3,
 						columnTitles: ['Health', 'Wealth', 'Relatioships'],
-						titles: ['Identity', 'Values', 'Goal', 'Champ Proof'],
+						titles: ['Identity', 'Values', 'Goal', 'Proof'],
 					},
 				},
 				{
 					type: ITINERARY_TEXT_NO_LINE,
-					value: '[ ] Identity (dream team)                        ' +
+					value: '[ ] Identity (dream team)                               ' +
 						'[ ] Visualise (excellence, procrastination, goals)',
 				},
 				{
 					type: ITINERARY_TEXT_NO_LINE,
-					value: '[ ] Read (Book, course)                          ' +
+					value: '[ ] Read (Book, course)                                  ' +
 						'[ ] Affirm    (So good they can\'t ignore you)',
 				},
 				{
 					type: ITINERARY_TEXT_NO_LINE,
-					value: '[ ] Excercise (Yoga, rubber, stretches) ' +
+					value: '[ ] Excercise (Yoga, rubber, stretches)           ' +
 						'[ ] Meditate (relax, past, future, enjoy, present)',
 				},
 				{ type: ITINERARY_LINES, value: 5 },
