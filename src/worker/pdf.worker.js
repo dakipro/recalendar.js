@@ -47,18 +47,9 @@ function encodeConfig( data ) {
 function hyphenationCallback( word ) {
 	return [ word ];
 }
-//
-// self.addEventListener( 'message', ( event ) => {
-// 	console.log( 'Worker received message:', event.data );
-// 	// Continue processing the message
-// } );
-
-
 
 self.onmessage = ( { data } ) => {
 	const config = new PdfConfig( hydrateFromObject( data ) );
-
-	console.log('data', data);
 
 	const { firstDayOfWeek, language, isPreview } = data;
 

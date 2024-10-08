@@ -2,7 +2,7 @@ import dayjs from 'dayjs/esm';
 import { t } from 'i18next';
 
 import { wrapWithId } from '~/lib/id-utils';
-import { ITINERARY_ITEM, ITINERARY_LINES, ITINERARY_TEXT_NO_LINE } from '~/lib/itinerary-utils';
+import {ITINERARY_ITEM, ITINERARY_LINES, ITINERARY_TABLE, ITINERARY_TEXT_NO_LINE} from '~/lib/itinerary-utils';
 import {
 	HOLIDAY_DAY_TYPE,
 	EVENT_DAY_TYPE,
@@ -91,6 +91,15 @@ class PdfConfig {
 		this.dayItineraries = [ ...Array( 7 ).keys() ].map( () => {
 			const items = [
 				{
+					type: ITINERARY_TABLE,
+					value: {
+						rows: 4,
+						columns: 3,
+						columnTitles: ['Health', 'Wealth', 'Relatioships'],
+						titles: ['Identity', 'Values', 'Goal', 'Champ Proof'],
+					},
+				},
+				{
 					type: ITINERARY_TEXT_NO_LINE,
 					value: '[ ] Identity (dream team)                        ' +
 						'[ ] Visualise (excellence, procrastination, goals)',
@@ -105,7 +114,7 @@ class PdfConfig {
 					value: '[ ] Excercise (Yoga, rubber, stretches) ' +
 						'[ ] Meditate (relax, past, future, enjoy, present)',
 				},
-				{ type: ITINERARY_LINES, value: 20 },
+				{ type: ITINERARY_LINES, value: 5 },
 			];
 
 			const itinerary = {

@@ -41,15 +41,8 @@ function Itinerary( props ) {
 
 	function renderRow( { id, value, type } ) {
 		return (
-			<SortableItineraryRow
-				key={ id }
-				field={ props.field }
-				id={ id }
-				type={ type }
-				value={ value }
-				onChange={ props.onChange }
-				onRemove={ props.onRemove }
-			/>
+			<div key={ id }>
+			</div>
 		);
 	}
 
