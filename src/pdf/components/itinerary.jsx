@@ -14,12 +14,23 @@ class Itinerary extends React.PureComponent {
 			minHeight: 20,
 			padding: '2 0 0 5',
 		},
+		textNoLine: {
+			borderBottom: '1 solid #AAA',
+			fontSize: 12,
+			fontWeight: 'bold',
+			height: 20,
+			minHeight: 20,
+			padding: '2 0 0 5',
+		},
 	} );
 
 	renderItineraryItem = ( { type, value }, index ) => {
+
 		switch ( type ) {
 			case ITINERARY_ITEM:
 				return this.renderItem( value, index );
+			case this.ITINERARY_TEXT_NO_LINE:
+				return this.renderTextNoLine( value, index );
 
 			case ITINERARY_LINES:
 			default:
@@ -30,6 +41,14 @@ class Itinerary extends React.PureComponent {
 	renderItem( text, index ) {
 		return (
 			<Text key={ index } style={ this.styles.line }>
+				{text}
+			</Text>
+		);
+	}
+
+	renderTextNoLine( text, index ) {
+		return (
+			<Text key={ index } style={ this.styles.textNoLine }>
 				{text}
 			</Text>
 		);

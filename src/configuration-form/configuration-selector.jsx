@@ -53,15 +53,6 @@ class ConfigurationSelector extends React.Component {
 				break;
 
 			case TEMPLATE_ADVANCED:
-				configOverrides.dayItineraries = [ ...Array( 7 ).keys() ].map( () => {
-					const itinerary = {
-						dayOfWeek,
-						items: this.generateAdvancedDayItems( dayOfWeek ),
-						isEnabled: true,
-					};
-					dayOfWeek = ++dayOfWeek % 7;
-					return itinerary;
-				} );
 				configOverrides.weekRetrospectiveItinerary = [
 					{
 						type: ITINERARY_ITEM,
@@ -135,27 +126,8 @@ class ConfigurationSelector extends React.Component {
 
 	generateAdvancedDayItems( dayOfWeek ) {
 		const items = [];
-		for ( let i = 8; i <= 20; i += 2 ) {
-			items.push( {
-				type: ITINERARY_ITEM,
-				value: i.toString().padStart( 2, 0 ) + ':00',
-			} );
-			items.push( { type: ITINERARY_LINES, value: 2 } );
-		}
 
 		items.push( { type: ITINERARY_LINES, value: 20 } );
-
-		if ( dayOfWeek === 1 ) {
-			items.push( { type: ITINERARY_NEW_PAGE, value: '' } );
-			items.push( {
-				type: ITINERARY_ITEM,
-				value: this.props.t( 'templates.advanced.day.monday', {
-					ns: 'config',
-				} ),
-			} );
-			items.push( { type: ITINERARY_LINES, value: 50 } );
-		}
-
 		return items;
 	}
 
