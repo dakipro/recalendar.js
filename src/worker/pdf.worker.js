@@ -58,6 +58,8 @@ function hyphenationCallback( word ) {
 self.onmessage = ( { data } ) => {
 	const config = new PdfConfig( hydrateFromObject( data ) );
 
+	console.log('data', data);
+
 	const { firstDayOfWeek, language, isPreview } = data;
 
 	changeLanguage( language );

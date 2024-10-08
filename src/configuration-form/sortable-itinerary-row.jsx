@@ -34,7 +34,6 @@ function SortableItineraryRow( props ) {
 				data-id={ id }
 				data-type={ ITINERARY_ITEM }
 				data-field={ props.field }
-				required
 			/>
 		);
 	}
@@ -64,7 +63,6 @@ function SortableItineraryRow( props ) {
 					data-id={ id }
 					data-type={ ITINERARY_LINES }
 					data-field={ field }
-					required
 				/>
 			</FloatingLabel>
 		);

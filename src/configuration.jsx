@@ -277,6 +277,8 @@ class Configuration extends React.PureComponent {
 
 	handlePdfWorkerMessage = ( { data: { blob } } ) => {
 		const shouldTriggerDownload = this.state.isGeneratingPdf;
+		// Daki: hack the state here if it doesn't obey
+		console.log(this.state);
 		if ( this.state.isGeneratingPreview ) {
 			const previewTime = new Date().getTime() - this.startTime.getTime();
 			this.setState( {
