@@ -129,7 +129,7 @@ class PdfConfig {
 					},
 				},
 
-				{ type: ITINERARY_TEXT_NO_LINE, value: 'Was this an olympic day?       W        L' },
+				{ type: ITINERARY_TEXT_NO_LINE, value: '( ↓ Retrospective on the next page ↓ )                                     Was this an olympic day?       [ W ]        [ L ]     .', alignment: 'right' },
 
 				{ type: ITINERARY_NEW_PAGE },
 				{ type: ITINERARY_ITEM, value: 'Why was this olympic WIN? Or why was it LEARN?' },

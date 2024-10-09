@@ -10,7 +10,7 @@ import {
 } from '~/lib/itinerary-utils';
 
 class Itinerary extends React.PureComponent {
-	styles = StyleSheet.create({
+	styles = StyleSheet.create( {
 		line: {
 			borderBottom: '1 solid #AAA',
 			fontSize: 12,
@@ -60,80 +60,83 @@ class Itinerary extends React.PureComponent {
 			flexDirection: 'row',
 			alignItems: 'center',
 		},
-	});
+	} );
 
-	renderItineraryItem = ({ type, value }, index) => {
-		switch (type) {
+	renderItineraryItem = ( { type, value, alignment }, index ) => {
+		switch ( type ) {
 			case ITINERARY_TABLE:
-				return this.renderTable(value, index);
+				return this.renderTable( value, index );
 			case ITINERARY_ITEM:
-				return this.renderItem(value, index);
+				return this.renderItem( value, index );
 			case ITINERARY_TEXT_NO_LINE:
-				return this.renderTextNoLine(value, index);
+				return this.renderTextNoLine( value, index, alignment );
 			case ITINERARY_LINES:
 			default:
-				return this.renderLines(value);
+				return this.renderLines( value );
 		}
 	};
 
-	renderItem(text, index) {
+	renderItem( text, index ) {
 		return (
-			<Text key={index} style={this.styles.line}>
+			<Text key={ index } style={ this.styles.line }>
+				{text}
+			</Text>
+		);
+	}
+	renderTextNoLine( text, index, alignment = 'left' ) {
+		const textStyle = [
+			this.styles.textNoLine,
+			alignment === 'right' && { textAlign: 'right' },
+		];
+		return (
+			<Text key={ index } style={ textStyle }>
 				{text}
 			</Text>
 		);
 	}
 
-	renderTextNoLine(text, index) {
-		return (
-			<Text key={index} style={this.styles.textNoLine}>
-				{text}
-			</Text>
-		);
-	}
-
-	renderLines(count) {
+	renderLines( count ) {
 		const lines = [];
-		for (let i = 0; i < count; i++) {
-			lines.push(<Text key={i} style={this.styles.line}></Text>);
+		for ( let i = 0; i < count; i++ ) {
+			lines.push( <Text key={ i } style={ this.styles.line }></Text> );
 		}
 
 		return lines;
 	}
 
-	renderTable({ rows, columns, titles, columnTitles }, index) {
+	renderTable( { rows, columns, titles, columnTitles }, index ) {
 		const tableRows = [];
-		if (columnTitles) {
+		if ( columnTitles ) {
 			tableRows.push(
-				<View key={`column-titles`} style={{ flexDirection: 'row' }}>
-					<Text style={this.styles.rowTitle}></Text>
-					{columnTitles.map((title, colIndex) => (
-						<Text key={`col-title-${colIndex}`} style={this.styles.columnHeader}>
+				<View key={ 'column-titles' } style={ { flexDirection: 'row' } }>
+					<Text style={ this.styles.rowTitle }></Text>
+					{columnTitles.map( ( title, colIndex ) => (
+						<Text key={ `col-title-${colIndex}` } style={ this.styles.columnHeader }>
 							{title}
 						</Text>
-					))}
-				</View>
+					) )}
+				</View>,
 			);
 		}
-		for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
+		for ( let rowIndex = 0; rowIndex < rows; rowIndex++ ) {
 			tableRows.push(
-				<View key={`content-${rowIndex}`} style={this.styles.rowContainer}>
-					<Text key={`title-${rowIndex}`} style={this.styles.rowTitle}>
-						{titles[rowIndex]}
+				<View key={ `content-${rowIndex}` } style={ this.styles.rowContainer }>
+					<Text key={ `title-${rowIndex}` } style={ this.styles.rowTitle }>
+						{titles[ rowIndex ]}
 					</Text>
-					{[...Array(columns)].map((_, colIndex) => (
-						<Text key={`col-${colIndex}`} style={this.styles.tableCell}>
+					{[ ...Array( columns ) ].map( ( _, colIndex ) => (
+						<Text key={ `col-${colIndex}` } style={ this.styles.tableCell }>
 
 						</Text>
-					))}
-				</View>
+					) )}
+				</View>,
 			);
 		}
-		return <View key={index}>{tableRows}</View>;
+		return <View key={ index }>{tableRows}</View>;
 	}
 
 	render() {
-		return <>{this.props.items.map(this.renderItineraryItem)}</>;
+		return <>{this.props.items.map( this.renderItineraryItem )}</>;
 	}
 }
 
