@@ -64,6 +64,17 @@ class Header extends React.PureComponent {
 				marginLeft: 5,
 				fontStyle: 'italic',
 			},
+			subheaderBlock: {
+				flexDirection: 'row',
+				justifyContent: 'flex-start',
+				paddingLeft: 5,
+				paddingBottom: 5,
+			},
+			subheaderLink: {
+				textDecoration: 'none',
+				color: 'black',
+				fontSize: 10,
+			}
 		};
 
 		if ( this.props.isLeftHanded ) {
@@ -108,6 +119,7 @@ class Header extends React.PureComponent {
 			subtitle,
 			title,
 			titleLink,
+			dailyRetroLink,
 		} = this.props;
 
 		return (
@@ -129,6 +141,14 @@ class Header extends React.PureComponent {
 						{this.renderSpecialItems()}
 						<Text style={ this.styles.subtitle }>{subtitle}</Text>
 					</View>
+
+
+					<View style={ this.styles.subheaderBlock }></View>
+					{dailyRetroLink && (
+						<Link src={ dailyRetroLink } style={this.styles.subheaderLink}>
+								Daily retro »
+						</Link>
+					)}
 				</View>
 				{calendar}
 			</View>
@@ -155,6 +175,7 @@ Header.propTypes = {
 	titleSize: PropTypes.number,
 	previousLink: PropTypes.string.isRequired,
 	nextLink: PropTypes.string.isRequired,
+	dailyRetroLink: PropTypes.string,
 };
 
 export default Header;

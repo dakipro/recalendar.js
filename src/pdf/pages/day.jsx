@@ -24,14 +24,16 @@ class DayPage extends React.Component {
 	styles = StyleSheet.create(
 		Object.assign( {}, { content, page: pageStyle( this.props.config ) } ),
 	);
-
-	renderExtraItems = ( items, index ) => (
-		<Page key={ index } size={ this.props.config.pageSize }>
-			<View style={ this.styles.page }>
-				<Itinerary items={ items } />
-			</View>
-		</Page>
-	);
+	renderExtraItems = ( items, index ) => {
+		const { date, config } = this.props;
+		return (
+			<Page id={ dayPageLink( date, config ) + '-' + index } key={ index } size={ config.pageSize }>
+				<View style={ this.styles.page }>
+					<Itinerary items={ items } />
+				</View>
+			</Page>
+		);
+	};
 
 	render() {
 		const { date, config } = this.props;
@@ -57,6 +59,7 @@ class DayPage extends React.Component {
 							number={ date.format( 'DD' ) }
 							previousLink={ '#' + previousDayPageLink( date, config ) }
 							nextLink={ '#' + nextDayPageLink( date, config ) }
+							dailyRetroLink={ '#' + dayPageLink( date, config ) + '-0' }
 							calendar={ <MiniCalendar date={ date } config={ config } /> }
 							specialItems={ specialItems }
 						/>
