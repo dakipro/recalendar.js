@@ -54,12 +54,16 @@ class Configuration extends React.PureComponent {
 			console.error( 'Worker initialization error:', error );
 		};
 
-
 		this.pdfWorker.onmessage = this.handlePdfWorkerMessage;
+		
+		this.previewButtonRef = React.createRef();
 	}
 
 	componentDidMount() {
 		i18n.on( 'languageChanged', this.handleLanguageChange );
+		setTimeout(() => {
+			this.previewButtonRef.current.click(); // Programmatically click the button
+		}, 1000); // 1-second timeout
 	}
 
 	componentWillUnmount() {
@@ -278,7 +282,7 @@ class Configuration extends React.PureComponent {
 	handlePdfWorkerMessage = ( { data: { blob } } ) => {
 		const shouldTriggerDownload = this.state.isGeneratingPdf;
 		// Daki: hack the state here if it doesn't obey
-		console.log(this.state);
+		console.log( this.state );
 		if ( this.state.isGeneratingPreview ) {
 			const previewTime = new Date().getTime() - this.startTime.getTime();
 			this.setState( {
@@ -293,8 +297,6 @@ class Configuration extends React.PureComponent {
 			saveAs( blob, 'recalendar.pdf' );
 		}
 	};
-
-
 
 	handleDayItineraryChange = ( event ) => {
 		const newItineraries = [ ...this.state.dayItineraries ];
@@ -425,7 +427,7 @@ class Configuration extends React.PureComponent {
 		const { t } = this.props;
 		const { isGeneratingPdf, isGeneratingPreview } = this.state;
 		return (
-			<Form onSubmit={ this.handlePreview }>
+			<Form onSubmit={ this.handlePreview } ref={ this.formRef }>
 				<Accordion defaultActiveKey="start" className="my-3">
 					<Accordion.Item eventKey="start">
 						<Accordion.Header>
@@ -635,6 +637,7 @@ class Configuration extends React.PureComponent {
 						className="w-100"
 						disabled={ isGeneratingPreview || isGeneratingPdf }
 						type="submit"
+						ref={ this.previewButtonRef }
 					>
 						{isGeneratingPreview ? (
 							<>

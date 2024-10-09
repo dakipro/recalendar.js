@@ -129,15 +129,18 @@ class PdfConfig {
 					},
 				},
 
+				{ type: ITINERARY_TEXT_NO_LINE, value: 'Was this an olympic day?       W        L' },
 
 				{ type: ITINERARY_NEW_PAGE },
+				{ type: ITINERARY_ITEM, value: 'Why was this olympic WIN? Or why was it LEARN?' },
+				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'Who made a difference?' },
+				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'A moment that I really appreciated today was…' },
 				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'A situation or task I handled well today was…' },
 				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'Something I realized or learned today was…' },
-				{ type: ITINERARY_LINES, value: 2 },
-				{ type: ITINERARY_ITEM, value: 'I could have made today even better if I…' },
 				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'Something that could have helped me feel more connected to others would have been…' },
 				{ type: ITINERARY_LINES, value: 2 },
@@ -160,7 +163,10 @@ class PdfConfig {
 			return itinerary;
 		} );
 		this.isWeekRetrospectiveEnabled = true;
+			// TODO: have a goal for the week, and month
+
 		this.weekRetrospectiveItinerary = [
+			// TODO: grade week towards goal progress
 			{
 				type: ITINERARY_LINES,
 				value: 50,
@@ -169,6 +175,8 @@ class PdfConfig {
 		// See https://github.com/diegomura/react-pdf/issues/2006
 		this.pageSize = [ 445, 592 ]; // [ '157mm', '209mm' ];
 		this.specialDates = [
+			
+			// TODO: enter special dates, birthdays, red days in norway etc
 			{
 				date: '01-01',
 				value: t( 'special-dates.example1', { ns: 'config' } ),
