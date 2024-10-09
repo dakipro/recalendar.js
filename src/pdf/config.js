@@ -88,8 +88,10 @@ class PdfConfig {
 		];
 		this.isWeekOverviewEnabled = true;
 		this.todos = [
-			// t( 'todos.example1', { ns: 'config' } ),
-			// t( 'todos.example2', { ns: 'config' } ),
+			'Monthly goals:',
+			' ',
+			' ',
+			'3 BIG ones:',
 		];
 
 		let dayOfWeek = this.firstDayOfWeek;
@@ -148,6 +150,7 @@ class PdfConfig {
 				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'If I was my own high performance coach, I would tell myself this…' },
 				{ type: ITINERARY_LINES, value: 2 },
+				{ type: ITINERARY_ITEM, value: 'Rate 1-5:' },
 				{ type: ITINERARY_ITEM, value: 'CLARITY  I knew my “why” and I lived intentionally today _____' },
 				{ type: ITINERARY_ITEM, value: 'ENERGY  I managed my mental and physical energy well _____' },
 				{ type: ITINERARY_ITEM, value: 'NECESSITY I felt it was necessary to be my best and made success a “must” _____' },

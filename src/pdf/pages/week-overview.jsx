@@ -28,8 +28,8 @@ class WeekOverviewPage extends React.Component {
 					paddingLeft: 1,
 				},
 				day: {
-					width: '33.5%',
-					height: '33.5%',
+					width: '20%',
+					height: '25%',
 					border: '1 solid black',
 					flexDirection: 'column',
 					marginTop: -1,
@@ -79,7 +79,7 @@ class WeekOverviewPage extends React.Component {
 	renderDays() {
 		const { date } = this.props;
 		let currentDate = date.startOf( 'week' );
-		const endOfWeek = date.endOf( 'week' );
+		const endOfWeek = date.endOf( 'week' ).subtract( 2, 'days' );
 		const days = [];
 		while ( currentDate.isBefore( endOfWeek ) ) {
 			days.push( this.renderDay( currentDate ) );
@@ -106,7 +106,7 @@ class WeekOverviewPage extends React.Component {
 					src={ '#' + dayPageLink( day, config ) }
 				>
 					<View style={ this.styles.dayDate }>
-						<Text style={ this.styles.dayOfWeek }>{day.format( 'dddd' )}</Text>
+						<Text style={ this.styles.dayOfWeek }>{day.format( 'ddd' )}</Text>
 						<Text style={ this.styles.shortDate }>{day.format( 'DD MMM' )}</Text>
 					</View>
 
