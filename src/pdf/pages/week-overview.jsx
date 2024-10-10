@@ -13,6 +13,7 @@ import {
 import Header from '~/pdf/components/header';
 import MiniCalendar, { HIGHLIGHT_WEEK } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
+import { renderTable } from '~/pdf/elements/renderTable.jsx';
 import { weekOverviewLink, dayPageLink } from '~/pdf/lib/links';
 import { content, pageStyle } from '~/pdf/styles';
 
@@ -161,6 +162,17 @@ class WeekOverviewPage extends React.Component {
 						}
 					/>
 					<View style={ this.styles.days }>{this.renderDays()}</View>
+					{renderTable(
+						{
+							rows: 2,
+							columns: 2,
+							titles: [ 'Urgent', 'Non-Urgent' ],
+							columnTitles: [ 'Important', 'Unimportant' ],
+							cellValues: [
+								[ 'Do it now', 'Schedule' ],
+								[ 'Delegate', 'Delete' ],
+							],
+						}, 0 )}
 				</View>
 			</Page>
 		);

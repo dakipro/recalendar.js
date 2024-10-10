@@ -8,6 +8,7 @@ import {
 	ITINERARY_TEXT_NO_LINE,
 	ITINERARY_TABLE,
 } from '~/lib/itinerary-utils';
+import { renderTable } from '~/pdf/elements/renderTable';
 
 class Itinerary extends React.PureComponent {
 	styles = StyleSheet.create( {
@@ -65,7 +66,7 @@ class Itinerary extends React.PureComponent {
 	renderItineraryItem = ( { type, value, alignment }, index ) => {
 		switch ( type ) {
 			case ITINERARY_TABLE:
-				return this.renderTable( value, index );
+				return renderTable( value, index );
 			case ITINERARY_ITEM:
 				return this.renderItem( value, index );
 			case ITINERARY_TEXT_NO_LINE:
