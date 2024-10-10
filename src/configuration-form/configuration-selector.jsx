@@ -53,29 +53,6 @@ class ConfigurationSelector extends React.Component {
 				break;
 
 			case TEMPLATE_ADVANCED:
-				configOverrides.weekRetrospectiveItinerary = [
-					{
-						type: ITINERARY_ITEM,
-						value: t( 'templates.advanced.retrospective.wins', {
-							ns: 'config',
-						} ),
-					},
-					{ type: ITINERARY_LINES, value: 7 },
-					{
-						type: ITINERARY_ITEM,
-						value: t( 'templates.advanced.retrospective.discoveries', {
-							ns: 'config',
-						} ),
-					},
-					{ type: ITINERARY_LINES, value: 7 },
-					{
-						type: ITINERARY_ITEM,
-						value: t( 'templates.advanced.retrospective.fails', {
-							ns: 'config',
-						} ),
-					},
-					{ type: ITINERARY_LINES, value: 15 },
-				];
 				break;
 
 			case TEMPLATE_BLANK:

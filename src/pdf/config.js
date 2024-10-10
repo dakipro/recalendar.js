@@ -63,7 +63,7 @@ class PdfConfig {
 		this.fontFamily = LATO;
 		this.isMonthOverviewEnabled = true;
 		this.habits = [
-			// t( 'habits.example1', { ns: 'config' } ),
+			'W or L',
 			// t( 'habits.example2', { ns: 'config' } ),
 			// t( 'habits.example3', { ns: 'config' } ),
 			// t( 'habits.example4', { ns: 'config' } ),
@@ -112,7 +112,6 @@ class PdfConfig {
 				value: 'Who will make a difference?',
 			},
 			{ type: ITINERARY_LINES, value: 2 },
-
 
 			{
 				type: ITINERARY_TEXT_NO_LINE,
@@ -194,14 +193,24 @@ class PdfConfig {
 			return itinerary;
 		} );
 		this.isWeekRetrospectiveEnabled = true;
-		// TODO: have a goal for the week, and month
 
 		this.weekRetrospectiveItinerary = [
-			// TODO: grade week towards goal progress
 			{
-				type: ITINERARY_LINES,
-				value: 50,
+				type: ITINERARY_ITEM,
+				value: '3 wins, and why:',
 			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{
+				type: ITINERARY_ITEM,
+				value: '3 biggest challenges, and what did I learn:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Unfinished business:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next weeks goals' },
 		];
 		// See https://github.com/diegomura/react-pdf/issues/2006
 		this.pageSize = [ 445, 592 ]; // [ '157mm', '209mm' ];
@@ -226,6 +235,7 @@ class PdfConfig {
 		const fieldsRequiringUniqueIds = [
 			'habits',
 			'monthItinerary',
+			'weekItinerary',
 			'specialDates',
 			'todos',
 			'weekRetrospectiveItinerary',

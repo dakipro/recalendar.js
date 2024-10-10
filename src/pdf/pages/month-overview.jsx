@@ -120,6 +120,9 @@ class MonthOverviewPage extends React.Component {
 		this.styles = StyleSheet.create( stylesObject );
 	}
 
+	// TODO - move this to a month review component
+	// TODO this  same thing in week reivew
+	// (rules: no more then 6Ls in a month, no more then 2 in a row)
 	renderHabitsTable() {
 		const habits = this.props.config.habits;
 		if ( habits.length === 0 ) {
