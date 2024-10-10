@@ -24,11 +24,11 @@ const styles = StyleSheet.create( {
 	tableCell: {
 		fontSize: 12,
 		flex: 1,
-		textAlign: 'center',
 		borderWidth: 1,
 		borderColor: '#AAA',
 		minHeight: 50,
 		lineHeight: 1.5,
+        textAlign: 'center',
 	},
 	columnHeader: {
 		fontSize: 12,

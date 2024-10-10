@@ -7,7 +7,7 @@ import {
 	ITINERARY_LINES,
 	ITINERARY_NEW_PAGE,
 	ITINERARY_TABLE,
-	ITINERARY_TEXT_NO_LINE
+	ITINERARY_TEXT_NO_LINE,
 } from '~/lib/itinerary-utils';
 import {
 	HOLIDAY_DAY_TYPE,
@@ -89,9 +89,14 @@ class PdfConfig {
 		this.isWeekOverviewEnabled = true;
 		this.todos = [
 			'Monthly goals:',
-			' ',
-			' ',
-			'3 BIG ones:',
+			' ', ' ', ' ', ' ',
+			'Week 3 BIG ones:',
+			' ', ' ', ' ', ' ',
+			'What are obstacles, and how will I overcome them:',
+			' ', ' ', ' ', ' ',
+			'Who will make a difference:',
+			' ', ' ',
+			'[ ] Block calendar, [ ] Ask someone for help, [ ]',
 		];
 
 		let dayOfWeek = this.firstDayOfWeek;
@@ -103,8 +108,8 @@ class PdfConfig {
 					value: {
 						rows: 4,
 						columns: 3,
-						columnTitles: ['Health', 'Wealth', 'Relationships'],
-						titles: ['Identity', 'Values', 'Goal', 'Proof'],
+						columnTitles: [ 'Health', 'Wealth', 'Relationships' ],
+						titles: [ 'Identity', 'Values', 'Goal', 'Proof' ],
 					},
 				},
 				{
@@ -127,7 +132,7 @@ class PdfConfig {
 						rows: 4,
 						columns: 1,
 						columnTitles: [],
-						titles: ['Morning', 'Maker', 'Manager', 'Evening'],
+						titles: [ 'Morning', 'Maker', 'Manager', 'Evening' ],
 					},
 				},
 
@@ -168,7 +173,7 @@ class PdfConfig {
 			return itinerary;
 		} );
 		this.isWeekRetrospectiveEnabled = true;
-			// TODO: have a goal for the week, and month
+		// TODO: have a goal for the week, and month
 
 		this.weekRetrospectiveItinerary = [
 			// TODO: grade week towards goal progress
@@ -180,7 +185,7 @@ class PdfConfig {
 		// See https://github.com/diegomura/react-pdf/issues/2006
 		this.pageSize = [ 445, 592 ]; // [ '157mm', '209mm' ];
 		this.specialDates = [
-			
+
 			// TODO: enter special dates, birthdays, red days in norway etc
 			{
 				date: '01-01',
