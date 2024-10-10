@@ -55,15 +55,15 @@ class Configuration extends React.PureComponent {
 		};
 
 		this.pdfWorker.onmessage = this.handlePdfWorkerMessage;
-		
+
 		this.previewButtonRef = React.createRef();
 	}
 
 	componentDidMount() {
 		i18n.on( 'languageChanged', this.handleLanguageChange );
-		setTimeout(() => {
+		setTimeout( () => {
 			this.previewButtonRef.current.click(); // Programmatically click the button
-		}, 1000); // 1-second timeout
+		}, 1000 ); // 1-second timeout
 	}
 
 	componentWillUnmount() {
@@ -282,7 +282,6 @@ class Configuration extends React.PureComponent {
 	handlePdfWorkerMessage = ( { data: { blob } } ) => {
 		const shouldTriggerDownload = this.state.isGeneratingPdf;
 		// Daki: hack the state here if it doesn't obey
-		console.log( this.state );
 		if ( this.state.isGeneratingPreview ) {
 			const previewTime = new Date().getTime() - this.startTime.getTime();
 			this.setState( {

@@ -6,7 +6,6 @@ const styles = StyleSheet.create( {
 	tableTitle: {
 		fontSize: 10,
 		width: 50,
-		textAlign: 'center',
 		writingMode: 'vertical-rl',
 		transform: 'rotate(-90deg)',
 		flexShrink: 0,
@@ -28,7 +27,7 @@ const styles = StyleSheet.create( {
 		borderColor: '#AAA',
 		minHeight: 50,
 		lineHeight: 1.5,
-        textAlign: 'center',
+		textAlign: 'center',
 	},
 	columnHeader: {
 		fontSize: 12,

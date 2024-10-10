@@ -23,44 +23,6 @@ class Itinerary extends React.PureComponent {
 			fontSize: 8,
 			padding: '2 0 0 5',
 		},
-		tableTitle: {
-			fontSize: 10,
-			width: 50,
-			textAlign: 'center',
-			writingMode: 'vertical-rl',
-			transform: 'rotate(-90deg)',
-			flexShrink: 0,
-			borderWidth: 1,
-			borderColor: '#AAA',
-			minHeight: 10,
-		},
-		rowTitle: {
-			fontSize: 8,
-			width: 10,
-			transform: 'rotate(-90deg)',
-			flexShrink: 0,
-			minHeight: 10,
-		},
-		tableCell: {
-			fontSize: 12,
-			flex: 1,
-			textAlign: 'center',
-			borderWidth: 1,
-			borderColor: '#AAA',
-			minHeight: 50,
-			lineHeight: 1.5,
-		},
-		columnHeader: {
-			fontSize: 12,
-			flex: 1,
-			textAlign: 'center',
-			minHeight: 10,
-			lineHeight: 1,
-		},
-		rowContainer: {
-			flexDirection: 'row',
-			alignItems: 'center',
-		},
 	} );
 
 	renderItineraryItem = ( { type, value, alignment }, index ) => {
@@ -103,37 +65,6 @@ class Itinerary extends React.PureComponent {
 		}
 
 		return lines;
-	}
-
-	renderTable( { rows, columns, titles, columnTitles }, index ) {
-		const tableRows = [];
-		if ( columnTitles ) {
-			tableRows.push(
-				<View key={ 'column-titles' } style={ { flexDirection: 'row' } }>
-					<Text style={ this.styles.rowTitle }></Text>
-					{columnTitles.map( ( title, colIndex ) => (
-						<Text key={ `col-title-${colIndex}` } style={ this.styles.columnHeader }>
-							{title}
-						</Text>
-					) )}
-				</View>,
-			);
-		}
-		for ( let rowIndex = 0; rowIndex < rows; rowIndex++ ) {
-			tableRows.push(
-				<View key={ `content-${rowIndex}` } style={ this.styles.rowContainer }>
-					<Text key={ `title-${rowIndex}` } style={ this.styles.rowTitle }>
-						{titles[ rowIndex ]}
-					</Text>
-					{[ ...Array( columns ) ].map( ( _, colIndex ) => (
-						<Text key={ `col-${colIndex}` } style={ this.styles.tableCell }>
-
-						</Text>
-					) )}
-				</View>,
-			);
-		}
-		return <View key={ index }>{tableRows}</View>;
 	}
 
 	render() {

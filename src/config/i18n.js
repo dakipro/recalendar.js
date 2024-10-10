@@ -3,7 +3,7 @@ import dayjsLocales from 'dayjs/locale.json';
 
 export function i18nConfiguration( namespaces ) {
 	return {
-		debug: import.meta.env.DEV,
+		debug: false,
 		fallbackLng: 'en',
 		load: 'currentOnly',
 		supportedLngs: dayjsLocales.map( ( ( { key } ) => key ) ),
