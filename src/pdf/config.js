@@ -87,16 +87,37 @@ class PdfConfig {
 			},
 		];
 		this.isWeekOverviewEnabled = true;
-		this.todos = [
-			'Monthly goals:',
-			' ', ' ', ' ', ' ',
-			'Week 3 BIG ones:',
-			' ', ' ', ' ', ' ',
-			'What are obstacles, and how will I overcome them:',
-			' ', ' ', ' ', ' ',
-			'Who will make a difference:',
-			' ', ' ',
-			'[ ] Block calendar, [ ] Ask someone for help, [ ]',
+		this.todos = [];
+		this.weekItinerary = [
+			{
+				type: ITINERARY_ITEM,
+				value: 'Monthly goals:',
+			},
+			{ type: ITINERARY_LINES, value: 2 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'Week 3 BIG ones (use prioritisation down):',
+			},
+			{ type: ITINERARY_LINES, value: 2 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'What are obstacles, and how will I overcome them:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'Who will make a difference?',
+			},
+			{ type: ITINERARY_LINES, value: 2 },
+
+
+			{
+				type: ITINERARY_TEXT_NO_LINE,
+				value: '[ ] Block calendar, [ ] Ask someone for help, [ ]',
+			},
 		];
 
 		let dayOfWeek = this.firstDayOfWeek;

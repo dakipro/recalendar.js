@@ -11,6 +11,7 @@ import {
 	HOLIDAY_DAY_TYPE,
 } from '~/lib/special-dates-utils';
 import Header from '~/pdf/components/header';
+import Itinerary from '~/pdf/components/itinerary.jsx';
 import MiniCalendar, { HIGHLIGHT_WEEK } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
 import { renderTable } from '~/pdf/elements/renderTable.jsx';
@@ -30,7 +31,7 @@ class WeekOverviewPage extends React.Component {
 				},
 				day: {
 					width: '20%',
-					height: '25%',
+					height: '100px',
 					border: '1 solid black',
 					flexDirection: 'column',
 					marginTop: -1,
@@ -162,6 +163,9 @@ class WeekOverviewPage extends React.Component {
 						}
 					/>
 					<View style={ this.styles.days }>{this.renderDays()}</View>
+
+					<Itinerary items={ config.weekItinerary } />
+
 					{renderTable(
 						{
 							rows: 2,
