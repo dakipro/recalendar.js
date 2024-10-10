@@ -1,4 +1,3 @@
-// src/pdf/utils/renderTable.js
 import { View, Text, StyleSheet } from '@react-pdf/renderer';
 import React from 'react';
 
