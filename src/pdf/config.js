@@ -97,13 +97,13 @@ class PdfConfig {
 
 			{
 				type: ITINERARY_ITEM,
-				value: 'Week 3 BIG ones (use prioritisation down):',
+				value: 'Week 3 BIG ones (80:20, or use prioritisation down):',
 			},
 			{ type: ITINERARY_LINES, value: 2 },
 
 			{
 				type: ITINERARY_ITEM,
-				value: 'What are obstacles, and how will I overcome them:',
+				value: '3 obstacles, and how will I overcome them:',
 			},
 			{ type: ITINERARY_LINES, value: 3 },
 
@@ -115,7 +115,7 @@ class PdfConfig {
 
 			{
 				type: ITINERARY_TEXT_NO_LINE,
-				value: '[ ] Block calendar, [ ] Ask someone for help, [ ]',
+				value: '[ ] Block calendar, [ ] Ask someone for help',
 			},
 		];
 
@@ -202,7 +202,7 @@ class PdfConfig {
 			{ type: ITINERARY_LINES, value: 3 },
 			{
 				type: ITINERARY_ITEM,
-				value: '3 biggest challenges, and what did I learn:',
+				value: '3 non wins, and what did I learn:',
 			},
 			{ type: ITINERARY_LINES, value: 3 },
 			{
