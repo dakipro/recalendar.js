@@ -74,7 +74,7 @@ class Header extends React.PureComponent {
 				textDecoration: 'none',
 				color: 'black',
 				fontSize: 10,
-			}
+			},
 		};
 
 		if ( this.props.isLeftHanded ) {

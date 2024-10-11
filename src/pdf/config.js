@@ -70,6 +70,11 @@ class PdfConfig {
 			'Wins',
 		];
 		this.monthItinerary = [
+
+			{
+				type: ITINERARY_TEXT_NO_LINE,
+				value: '(only 6 L days, no two L days in a row)',
+			},
 			{
 				type: ITINERARY_ITEM,
 				value: t( 'month.goal', { ns: 'config' } ),
@@ -196,6 +201,10 @@ class PdfConfig {
 		this.isWeekRetrospectiveEnabled = true;
 
 		this.weekRetrospectiveItinerary = [
+			{
+				type: ITINERARY_TEXT_NO_LINE,
+				value: '(No two L days in a row)',
+			},
 			{
 				type: ITINERARY_ITEM,
 				value: '3 wins, and why:',

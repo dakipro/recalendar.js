@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import { monthOverviewLink } from '~/pdf/lib/links';
+import { monthOverviewLink, monthRetrospectiveLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
@@ -40,6 +40,18 @@ class MonthOverviewPage extends React.Component {
 					fontWeight: 'bold',
 					marginLeft: 'auto',
 				},
+				subheaderBlock: {
+					flexDirection: 'column',
+					justifyContent: 'flex-end',
+					paddingLeft: 5,
+					paddingBottom: 5,
+					flex: 1,
+				},
+				subheaderLink: {
+					textDecoration: 'none',
+					color: 'black',
+					fontSize: 10,
+				},
 			},
 			{ page: pageStyle( props.config ) },
 		);
@@ -64,9 +76,16 @@ class MonthOverviewPage extends React.Component {
 				<Page id={ monthOverviewLink( date, config ) } size={ config.pageSize }>
 					<View style={ this.styles.page }>
 						<View style={ this.styles.header }>
+							<View style={ this.styles.subheaderBlock }>
+								<Link src={ '#' + monthRetrospectiveLink( date ) } style={ this.styles.subheaderLink }>
+									Month retro »
+								</Link>
+							</View>
+
 							<View style={ this.styles.meta }>
 								<Text style={ this.styles.title }>{date.format( 'MMMM' )}</Text>
 							</View>
+
 							<MiniCalendar
 								date={ date }
 								highlightMode={ HIGHLIGHT_NONE }
@@ -76,6 +95,7 @@ class MonthOverviewPage extends React.Component {
 						<View style={ this.styles.content }>
 							<Itinerary items={ itemsByPage[ 0 ] } />
 						</View>
+
 					</View>
 				</Page>
 				{itemsByPage.slice( 1 ).map( ( items, index ) => (

@@ -8,7 +8,7 @@ import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
 import HabitsTable from '~/pdf/elements/renderHabitsTable.jsx';
-import {dayPageLink, monthRetrospectiveLink} from '~/pdf/lib/links';
+import { monthRetrospectiveLink} from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
@@ -37,7 +37,7 @@ class MonthRetrospectivePage extends React.Component {
 					textTransform: 'uppercase',
 					color: 'black',
 					padding: '10 5',
-					fontSize: 35,
+					fontSize: 25,
 					fontWeight: 'bold',
 					marginLeft: 'auto',
 				},
@@ -68,7 +68,7 @@ class MonthRetrospectivePage extends React.Component {
 					<View style={ this.styles.page }>
 						<View style={ this.styles.header }>
 							<View style={ this.styles.meta }>
-								<Text style={ this.styles.title }>{date.format( 'MMMM' )}</Text>
+								<Text style={ this.styles.title }>{date.format( 'MMMM' )} Retro</Text>
 							</View>
 							<MiniCalendar
 								date={ date }
