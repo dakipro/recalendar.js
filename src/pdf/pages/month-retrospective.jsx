@@ -1,4 +1,4 @@
-import { Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
+import { Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import dayjs from 'dayjs/esm';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -8,7 +8,7 @@ import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
 import HabitsTable from '~/pdf/elements/renderHabitsTable.jsx';
-import { monthRetrospectiveLink} from '~/pdf/lib/links';
+import { monthRetrospectiveLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
@@ -61,7 +61,7 @@ class MonthRetrospectivePage extends React.Component {
 
 	render() {
 		const { date, config } = this.props;
-		const itemsByPage = splitItemsByPages( config.monthItinerary );
+		const itemsByPage = splitItemsByPages( config.monthReflectionItinerary );
 		return (
 			<>
 				<Page id={ monthRetrospectiveLink( date ) } size={ config.pageSize }>

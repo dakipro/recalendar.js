@@ -59,12 +59,12 @@ export function renderTable( { rows, columns, titles, columnTitles, cellValues =
 		tableRows.push(
 			<View key={ `content-${rowIndex}` } style={ styles.rowContainer }>
 				<Text key={ `title-${rowIndex}` } style={ styles.rowTitle }>
-					{titles[ rowIndex ]}
+					{titles && titles[ rowIndex ] ? titles[ rowIndex ] : ' '}
 				</Text>
 				{[ ...Array( columns ) ].map( ( _, colIndex ) => (
 					<Text key={ `col-${colIndex}` } style={ styles.tableCell }>
 						{cellValues[ rowIndex ] && cellValues[ rowIndex ][ colIndex ]
-							? cellValues[ rowIndex ][ colIndex ] : ''}
+							? cellValues[ rowIndex ][ colIndex ] : ' '}
 					</Text>
 				) )}
 			</View>,

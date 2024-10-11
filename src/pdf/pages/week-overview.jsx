@@ -165,18 +165,6 @@ class WeekOverviewPage extends React.Component {
 					<View style={ this.styles.days }>{this.renderDays()}</View>
 
 					<Itinerary items={ config.weekItinerary } />
-
-					{renderTable(
-						{
-							rows: 2,
-							columns: 2,
-							titles: [ 'Urgent', 'Non-Urgent' ],
-							columnTitles: [ 'Important', 'Unimportant' ],
-							cellValues: [
-								[ 'Do it now', 'Schedule' ],
-								[ 'Delegate', 'Delete' ],
-							],
-						}, 0 )}
 				</View>
 			</Page>
 		);

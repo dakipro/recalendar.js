@@ -70,28 +70,70 @@ class PdfConfig {
 			'Wins',
 		];
 		this.monthItinerary = [
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 2,
+					columnTitles: [ 'Yearly goal', 'Quarterly goal' ],
+				},
+			},
+			{
+				type: ITINERARY_ITEM,
+				value: 'Monthly 3 BIG goals (80:20, or use prioritisation down):',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
 
 			{
-				type: ITINERARY_TEXT_NO_LINE,
-				value: '(only 6 L days, no two L days in a row)',
+				type: ITINERARY_ITEM,
+				value: '3 obstacles, and how will I overcome them:',
 			},
+			{ type: ITINERARY_LINES, value: 3 },
+
 			{
 				type: ITINERARY_ITEM,
-				value: t( 'month.goal', { ns: 'config' } ),
+				value: 'Best way I can prepare to show up PRO this month:',
 			},
-			{
-				type: ITINERARY_LINES,
-				value: 3,
-			},
+			{ type: ITINERARY_LINES, value: 2 },
+
 			{
 				type: ITINERARY_ITEM,
-				value: t( 'month.notes', { ns: 'config' } ),
+				value: 'Who will make a difference?',
 			},
+
 			{
-				type: ITINERARY_LINES,
-				value: 10,
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 2,
+					columns: 2,
+					titles: [ 'Urgent', 'Non-Urgent' ],
+					columnTitles: [ 'Important', 'Unimportant' ],
+					cellValues: [
+						[ 'Do it now', 'Schedule' ],
+						[ 'Delegate', 'Delete' ],
+					],
+				},
 			},
+
 		];
+		this.monthReflectionItinerary = [
+			{
+				type: ITINERARY_ITEM,
+				value: 'how was this month?',
+			},
+			{
+				type: ITINERARY_ITEM,
+				value: '3 NON wins, and what did I learn:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Unfinished business:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next weeks goals' },
+		];
+
 		this.isWeekOverviewEnabled = true;
 		this.todos = [];
 		this.weekItinerary = [
@@ -122,6 +164,20 @@ class PdfConfig {
 			{
 				type: ITINERARY_TEXT_NO_LINE,
 				value: '[ ] Block calendar, [ ] Ask someone for help',
+			},
+
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 2,
+					columns: 2,
+					titles: [ 'Urgent', 'Non-Urgent' ],
+					columnTitles: [ 'Important', 'Unimportant' ],
+					cellValues: [
+						[ 'Do it now', 'Schedule' ],
+						[ 'Delegate', 'Delete' ],
+					],
+				},
 			},
 		];
 
@@ -212,14 +268,32 @@ class PdfConfig {
 			{ type: ITINERARY_LINES, value: 3 },
 			{
 				type: ITINERARY_ITEM,
-				value: '3 non wins, and what did I learn:',
+				value: 'Biggest struggle was:',
 			},
-			{ type: ITINERARY_LINES, value: 3 },
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '... and how would I advise best friend:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '2 things I learned about myself:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '1 decision I could have made:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
 			{
 				type: ITINERARY_ITEM,
 				value: 'Unfinished business:',
 			},
-			{ type: ITINERARY_LINES, value: 3 },
+			{ type: ITINERARY_LINES, value: 1 },
 			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next weeks goals' },
 		];
 		// See https://github.com/diegomura/react-pdf/issues/2006
@@ -246,6 +320,7 @@ class PdfConfig {
 			'monthlyHabits',
 			'weeklyHabits',
 			'monthItinerary',
+			'monthReflectionItinerary',
 			'weekItinerary',
 			'specialDates',
 			'todos',
