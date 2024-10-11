@@ -55,12 +55,12 @@ export function hydrateFromObject( object ) {
 class PdfConfig {
 	constructor( configOverrides = {} ) {
 		this.year = dayjs().year();
-		this.month = 9;
+		this.month = 0;
 		this.firstDayOfWeek = dayjs.localeData().firstDayOfWeek();
 		this.weekendDays = [ 0, 6 ];
 		this.isLeftHanded = false;
 		this.alwaysOnSidebar = false;
-		this.monthCount = 3;
+		this.monthCount = 12;
 		this.fontFamily = LATO;
 		this.isMonthOverviewEnabled = true;
 		this.monthlyHabits = [
