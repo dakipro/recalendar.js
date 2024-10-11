@@ -74,8 +74,8 @@ class PdfConfig {
 				type: ITINERARY_TABLE,
 				value: {
 					rows: 1,
-					columns: 2,
-					columnTitles: [ 'Yearly goals', 'Quarterly goals' ],
+					columns: 3,
+					columnTitles: [ '3 years goal', 'Yearly goals', 'Quarterly goals' ],
 				},
 			},
 			{
@@ -133,8 +133,8 @@ class PdfConfig {
 				type: ITINERARY_TABLE,
 				value: {
 					rows: 1,
-					columns: 2,
-					columnTitles: [ 'Quarterly goal', 'Monthly goals' ],
+					columns: 3,
+					columnTitles: [ 'Yearly goal', 'Quarterly goal', 'Monthly goals' ],
 				},
 			},
 
@@ -145,7 +145,7 @@ class PdfConfig {
 			{ type: ITINERARY_LINES, value: 1 },
 			{
 				type: ITINERARY_ITEM,
-				value: '3 great things that happened:',
+				value: '3 great things I made happen:',
 			},
 			{ type: ITINERARY_LINES, value: 3 },
 			{
@@ -161,27 +161,22 @@ class PdfConfig {
 
 			{
 				type: ITINERARY_ITEM,
-				value: '2 things I learned about myself:',
+				value: '3 things I learned about myself:',
 			},
 			{ type: ITINERARY_LINES, value: 1 },
 
 			{
 				type: ITINERARY_ITEM,
-				value: '2 things I learned about others:',
+				value: 'Someone I really connected with (describe memory):',
 			},
 			{ type: ITINERARY_LINES, value: 1 },
 
 			{
 				type: ITINERARY_ITEM,
-				value: '1 decision I could have made:',
+				value: 'The biggest decision I made that I will stick to:',
 			},
 			{ type: ITINERARY_LINES, value: 1 },
 
-			{
-				type: ITINERARY_ITEM,
-				value: 'Unfinished business:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
 			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next month goals' },
 		];
 
@@ -192,8 +187,8 @@ class PdfConfig {
 				type: ITINERARY_TABLE,
 				value: {
 					rows: 1,
-					columns: 2,
-					columnTitles: [ 'Quarterly goal', 'Monthly goals' ],
+					columns: 3,
+					columnTitles: [ 'Yearly goal', 'Quarterly goal', 'Monthly goals' ],
 				},
 			},
 			{
@@ -319,8 +314,8 @@ class PdfConfig {
 				type: ITINERARY_TABLE,
 				value: {
 					rows: 1,
-					columns: 2,
-					columnTitles: [ 'Monthly goal', 'Weekly goal' ],
+					columns: 3,
+					columnTitles: [ 'Quarterly goal', 'Monthly goals', 'Weekly goals' ],
 				},
 			},
 
