@@ -75,7 +75,7 @@ class PdfConfig {
 				value: {
 					rows: 1,
 					columns: 2,
-					columnTitles: [ 'Yearly goal', 'Quarterly goal' ],
+					columnTitles: [ 'Yearly goals', 'Quarterly goals' ],
 				},
 			},
 			{
@@ -98,8 +98,15 @@ class PdfConfig {
 
 			{
 				type: ITINERARY_ITEM,
+				value: 'What could I learn?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
 				value: 'Who will make a difference?',
 			},
+			{ type: ITINERARY_LINES, value: 1 },
 
 			{
 				type: ITINERARY_TABLE,
@@ -118,31 +125,77 @@ class PdfConfig {
 		];
 		this.monthReflectionItinerary = [
 			{
-				type: ITINERARY_ITEM,
-				value: 'how was this month?',
+				type: ITINERARY_TEXT_NO_LINE,
+				value: '(No two L days in a row)',
 			},
+
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 2,
+					columnTitles: [ 'Quarterly goal', 'Monthly goals' ],
+				},
+			},
+
 			{
 				type: ITINERARY_ITEM,
-				value: '3 NON wins, and what did I learn:',
+				value: 'How aligned was I on goals?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '3 great things that happened:',
 			},
 			{ type: ITINERARY_LINES, value: 3 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Biggest struggle was:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '... and how would I advise best friend:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '2 things I learned about myself:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '2 things I learned about others:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '1 decision I could have made:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
 			{
 				type: ITINERARY_ITEM,
 				value: 'Unfinished business:',
 			},
-			{ type: ITINERARY_LINES, value: 3 },
-			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next weeks goals' },
+			{ type: ITINERARY_LINES, value: 1 },
+			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next month goals' },
 		];
 
 		this.isWeekOverviewEnabled = true;
 		this.todos = [];
 		this.weekItinerary = [
 			{
-				type: ITINERARY_ITEM,
-				value: 'Monthly goals:',
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 2,
+					columnTitles: [ 'Quarterly goal', 'Monthly goals' ],
+				},
 			},
-			{ type: ITINERARY_LINES, value: 2 },
-
 			{
 				type: ITINERARY_ITEM,
 				value: 'Week 3 BIG ones (80:20, or use prioritisation down):',
@@ -261,9 +314,24 @@ class PdfConfig {
 				type: ITINERARY_TEXT_NO_LINE,
 				value: '(No two L days in a row)',
 			},
+
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 2,
+					columnTitles: [ 'Monthly goal', 'Weekly goal' ],
+				},
+			},
+
 			{
 				type: ITINERARY_ITEM,
-				value: '3 wins, and why:',
+				value: 'How aligned was I on goals?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '3 great things that happened:',
 			},
 			{ type: ITINERARY_LINES, value: 3 },
 			{
@@ -280,6 +348,12 @@ class PdfConfig {
 			{
 				type: ITINERARY_ITEM,
 				value: '2 things I learned about myself:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '2 things I learned about others:',
 			},
 			{ type: ITINERARY_LINES, value: 1 },
 
