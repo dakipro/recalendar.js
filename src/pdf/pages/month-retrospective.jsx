@@ -8,11 +8,11 @@ import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
 import HabitsTable from '~/pdf/elements/renderHabitsTable.jsx';
-import { dayPageLink, monthOverviewLink } from '~/pdf/lib/links';
+import {dayPageLink, monthRetrospectiveLink} from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
-class MonthOverviewPage extends React.Component {
+class MonthRetrospectivePage extends React.Component {
 	constructor( props ) {
 		super( props );
 
@@ -57,28 +57,14 @@ class MonthOverviewPage extends React.Component {
 		this.styles = StyleSheet.create( stylesObject );
 	}
 
-	// TODO - move this to a month review component
-	// (rules: no more then 6Ls in a month, no more then 2 in a row)
-
-	renderDay( day ) {
-		return (
-			<Link
-				key={ day.unix() }
-				src={ '#' + dayPageLink( day, this.props.config ) }
-				style={ this.styles.habitDay }
-			>
-				<Text style={ this.styles.habitDayDate }>{day.format( 'D' )}</Text>
-				<Text style={ this.styles.habitDayOfWeek }>{day.format( 'dd' )}</Text>
-			</Link>
-		);
-	}
+	// TODO -  (rules: no more then 6Ls in a month, no more then 2 in a row)
 
 	render() {
 		const { date, config } = this.props;
 		const itemsByPage = splitItemsByPages( config.monthItinerary );
 		return (
 			<>
-				<Page id={ monthOverviewLink( date, config ) } size={ config.pageSize }>
+				<Page id={ monthRetrospectiveLink( date ) } size={ config.pageSize }>
 					<View style={ this.styles.page }>
 						<View style={ this.styles.header }>
 							<View style={ this.styles.meta }>
@@ -109,10 +95,10 @@ class MonthOverviewPage extends React.Component {
 	}
 }
 
-MonthOverviewPage.propTypes = {
+MonthRetrospectivePage.propTypes = {
 	config: PropTypes.instanceOf( PdfConfig ).isRequired,
 	date: PropTypes.instanceOf( dayjs ).isRequired,
 	t: PropTypes.func.isRequired,
 };
 
-export default withTranslation( 'pdf' )( MonthOverviewPage );
+export default withTranslation( 'pdf' )( MonthRetrospectivePage );

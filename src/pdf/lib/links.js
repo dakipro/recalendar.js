@@ -66,6 +66,10 @@ export function monthOverviewLink( date, config ) {
 	return '';
 }
 
+export function monthRetrospectiveLink( date ) {
+	return 'month-retrospective-' + date.format( 'MMYYYY' );
+}
+
 export function weekOverviewLink( date, config ) {
 	if ( config.isWeekOverviewEnabled ) {
 		return 'week-overview-' + date.format( 'WWYYYY' );

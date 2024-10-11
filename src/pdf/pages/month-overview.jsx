@@ -7,8 +7,7 @@ import { withTranslation } from 'react-i18next';
 import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import HabitsTable from '~/pdf/elements/renderHabitsTable.jsx';
-import { dayPageLink, monthOverviewLink } from '~/pdf/lib/links';
+import { monthOverviewLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
@@ -57,22 +56,6 @@ class MonthOverviewPage extends React.Component {
 		this.styles = StyleSheet.create( stylesObject );
 	}
 
-	// TODO - move this to a month review component
-	// (rules: no more then 6Ls in a month, no more then 2 in a row)
-
-	renderDay( day ) {
-		return (
-			<Link
-				key={ day.unix() }
-				src={ '#' + dayPageLink( day, this.props.config ) }
-				style={ this.styles.habitDay }
-			>
-				<Text style={ this.styles.habitDayDate }>{day.format( 'D' )}</Text>
-				<Text style={ this.styles.habitDayOfWeek }>{day.format( 'dd' )}</Text>
-			</Link>
-		);
-	}
-
 	render() {
 		const { date, config } = this.props;
 		const itemsByPage = splitItemsByPages( config.monthItinerary );
@@ -90,8 +73,6 @@ class MonthOverviewPage extends React.Component {
 								config={ config }
 							/>
 						</View>
-						<HabitsTable date={ date } config={ config } t={ this.props.t } range="month" />
-
 						<View style={ this.styles.content }>
 							<Itinerary items={ itemsByPage[ 0 ] } />
 						</View>

@@ -10,6 +10,7 @@ import MonthOverviewPage from '~/pdf/pages/month-overview';
 import WeekOverviewPage from '~/pdf/pages/week-overview';
 import WeekRetrospectivePage from '~/pdf/pages/week-retrospective';
 import YearOverviewPage from '~/pdf/pages/year-overview';
+import MonthRetrospectivePage from "~/pdf/pages/month-retrospective.jsx";
 
 class RecalendarPdf extends React.Component {
 	styles = StyleSheet.create( {
@@ -33,6 +34,14 @@ class RecalendarPdf extends React.Component {
 				weekPages.push(
 					<MonthOverviewPage
 						key={ 'month-overview-' + currentDate.unix() }
+						date={ currentDate }
+						config={ config }
+					/>,
+				);
+
+				weekPages.push(
+					<MonthRetrospectivePage
+						key={ 'month-retrospective-' + currentDate.unix() }
 						date={ currentDate }
 						config={ config }
 					/>,
