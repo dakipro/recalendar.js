@@ -25,7 +25,8 @@ const CONFIG_FIELDS = [
 	'isLeftHanded',
 	'alwaysOnSidebar',
 	'isMonthOverviewEnabled',
-	'habits',
+	'monthlyHabits',
+	'weeklyHabits',
 	'monthItinerary',
 	'isWeekOverviewEnabled',
 	'todos',
@@ -62,11 +63,11 @@ class PdfConfig {
 		this.monthCount = 3;
 		this.fontFamily = LATO;
 		this.isMonthOverviewEnabled = true;
-		this.habits = [
-			'W or L',
-			// t( 'habits.example2', { ns: 'config' } ),
-			// t( 'habits.example3', { ns: 'config' } ),
-			// t( 'habits.example4', { ns: 'config' } ),
+		this.monthlyHabits = [
+			'Wins',
+		];
+		this.weeklyHabits = [
+			'Wins',
 		];
 		this.monthItinerary = [
 			{
@@ -233,7 +234,8 @@ class PdfConfig {
 
 	ensureUniqueIds() {
 		const fieldsRequiringUniqueIds = [
-			'habits',
+			'monthlyHabits',
+			'weeklyHabits',
 			'monthItinerary',
 			'weekItinerary',
 			'specialDates',

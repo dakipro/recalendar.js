@@ -57,7 +57,7 @@ class ConfigurationSelector extends React.Component {
 
 			case TEMPLATE_BLANK:
 				configOverrides.specialDates = [];
-				configOverrides.habits = [];
+				configOverrides.monthlyHabits = [];
 				configOverrides.monthItinerary = [];
 				configOverrides.todos = [];
 				configOverrides.dayItineraries = [ ...Array( 7 ).keys() ].map( () => {
@@ -74,7 +74,7 @@ class ConfigurationSelector extends React.Component {
 
 			case TEMPLATE_MINIMALISTIC:
 				configOverrides.specialDates = [];
-				configOverrides.habits = [];
+				configOverrides.monthlyHabits = [];
 				configOverrides.isMonthOverviewEnabled = false;
 				configOverrides.monthItinerary = [];
 				configOverrides.isWeekOverviewEnabled = true;

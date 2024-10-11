@@ -541,11 +541,11 @@ class Configuration extends React.PureComponent {
 						toggledOn={ this.state.isMonthOverviewEnabled }
 					>
 						<p className="mb-0">{t( 'configuration.month.description' )}</p>
-						<Accordion className="mt-3" defaultActiveKey="habits">
+						<Accordion className="mt-3" defaultActiveKey="monthlyHabits">
 							<ItemsList
-								field="habits"
+								field="monthlyHabits"
 								title={ t( 'configuration.month.habits.title' ) }
-								items={ this.state.habits }
+								items={ this.state.monthlyHabits }
 								onAdd={ this.handleItemAdd }
 								onChange={ this.handleItemChange }
 								onDragEnd={ this.handleDragEnd }

@@ -16,7 +16,6 @@ class MonthOverviewPage extends React.Component {
 	constructor( props ) {
 		super( props );
 
-
 		const stylesObject = Object.assign(
 			{
 				content: {
@@ -91,7 +90,7 @@ class MonthOverviewPage extends React.Component {
 								config={ config }
 							/>
 						</View>
-						<HabitsTable date={ date } config={ config } t={ this.props.t } />
+						<HabitsTable date={ date } config={ config } t={ this.props.t } range="month" />
 
 						<View style={ this.styles.content }>
 							<Itinerary items={ itemsByPage[ 0 ] } />

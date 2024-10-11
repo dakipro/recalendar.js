@@ -12,6 +12,7 @@ import PdfConfig from '~/pdf/config';
 import { weekRetrospectiveLink } from '~/pdf/lib/links';
 import { content, pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
+import HabitsTable from "~/pdf/elements/renderHabitsTable.jsx";
 
 class WeekRetrospectivePage extends React.Component {
 	styles = StyleSheet.create(
@@ -52,6 +53,7 @@ class WeekRetrospectivePage extends React.Component {
 							}
 						/>
 						<View style={ this.styles.content }>
+							<HabitsTable date={ date } config={ config } t={ this.props.t } range="week" />
 							<Itinerary items={ itemsByPage[ 0 ] } />
 						</View>
 					</View>

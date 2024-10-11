@@ -76,7 +76,12 @@ class HabitsTable extends React.Component {
 	}
 
 	renderHabitsTable() {
-		const habits = this.props.config.habits;
+		let habits;
+		if ( this.props.range === 'week' ) {
+			habits = this.props.config.weeklyHabits;
+		} else {
+			habits = this.props.config.monthlyHabits;
+		}
 		if ( habits.length === 0 ) {
 			return null;
 		}
@@ -89,20 +94,27 @@ class HabitsTable extends React.Component {
 	}
 
 	renderHabitsHeader() {
-		const { date, t } = this.props;
-		let currentDate = date.startOf( 'month' );
-		const endOfMonth = date.endOf( 'month' );
+		const { date, t, range } = this.props;
+		let currentDate;
+		let endDate;
+
+		if ( range === 'week' ) {
+			currentDate = date.startOf( 'week' );
+			endDate = date.endOf( 'week' );
+		} else {
+			currentDate = date.startOf( 'month' );
+			endDate = date.endOf( 'month' );
+		}
+
 		const days = [];
-		while ( currentDate.isBefore( endOfMonth ) ) {
+		while ( currentDate.isBefore( endDate ) || currentDate.isSame( endDate, 'day' ) ) {
 			days.push( this.renderDay( currentDate ) );
 			currentDate = currentDate.add( 1, 'day' );
 		}
 		return (
 			<View style={ this.styles.habitsHeader }>
 				<View style={ this.styles.habitContainer }>
-					<Text style={ this.styles.habitsTitle }>
-						{t( 'page.month.habits.title' )}
-					</Text>
+					<Text style={ this.styles.habitsTitle }>{t( 'page.month.habits.title' )}</Text>
 				</View>
 				{days}
 			</View>
@@ -134,12 +146,21 @@ class HabitsTable extends React.Component {
 	};
 
 	renderHabitSquares() {
-		const { config } = this.props;
+		const { config, range } = this.props;
 		const weekendDays = getWeekendDays( config.weekendDays, config.firstDayOfWeek );
-		let currentDate = this.props.date.startOf( 'month' );
-		const endOfMonth = this.props.date.endOf( 'month' );
+		let currentDate;
+		let endDate;
+
+		if ( range === 'week' ) {
+			currentDate = this.props.date.startOf( 'week' );
+			endDate = this.props.date.endOf( 'week' );
+		} else {
+			currentDate = this.props.date.startOf( 'month' );
+			endDate = this.props.date.endOf( 'month' );
+		}
+
 		const squares = [];
-		while ( currentDate.isBefore( endOfMonth ) ) {
+		while ( currentDate.isBefore( endDate ) || currentDate.isSame( endDate, 'day' ) ) {
 			const styles = [ this.styles.habitSquare ];
 			if ( weekendDays.includes( currentDate.day() ) ) {
 				styles.push( this.styles.weekendDay );
@@ -165,6 +186,7 @@ HabitsTable.propTypes = {
 	date: PropTypes.object.isRequired,
 	config: PropTypes.object.isRequired,
 	t: PropTypes.func.isRequired,
+	range: PropTypes.oneOf( [ 'month', 'week' ] ).isRequired,
 };
 
 export default HabitsTable;
