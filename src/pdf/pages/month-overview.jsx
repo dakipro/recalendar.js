@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import { monthOverviewLink, monthRetrospectiveLink } from '~/pdf/lib/links';
+import { monthOverviewLink, monthRetrospectiveLink, quarterOverviewLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
@@ -43,7 +43,6 @@ class MonthOverviewPage extends React.Component {
 				subheaderBlock: {
 					flexDirection: 'column',
 					justifyContent: 'flex-end',
-					paddingLeft: 5,
 					paddingBottom: 5,
 					flex: 1,
 				},
@@ -76,8 +75,17 @@ class MonthOverviewPage extends React.Component {
 				<Page id={ monthOverviewLink( date, config ) } size={ config.pageSize }>
 					<View style={ this.styles.page }>
 						<View style={ this.styles.header }>
+
 							<View style={ this.styles.subheaderBlock }>
-								<Link src={ '#' + monthRetrospectiveLink( date ) } style={ this.styles.subheaderLink }>
+								<Link src={ '#' + quarterOverviewLink( date ) }
+									  style={ this.styles.subheaderLink }>
+									Q{ date.format( 'Q' ) } overview »
+								</Link>
+							</View>
+
+							<View style={ this.styles.subheaderBlock }>
+								<Link src={ '#' + monthRetrospectiveLink( date ) }
+									  style={ this.styles.subheaderLink }>
 									Month retro »
 								</Link>
 							</View>

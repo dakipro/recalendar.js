@@ -75,12 +75,12 @@ class QuarterOverviewPage extends React.Component {
 
 		return (
 			<>
-				<Page id={ quarterOverviewLink( date.format( 'Q' ) ) } size={ config.pageSize }>
+				<Page id={ quarterOverviewLink( date ) } size={ config.pageSize }>
 					<View style={ this.styles.page }>
 						<View style={ this.styles.header }>
 							<View style={ this.styles.subheaderBlock }>
 								<Link
-									src={ '#' + quarterRetrospectiveLink( date.format( 'Q' ) ) }
+									src={ '#' + quarterRetrospectiveLink( date ) }
 									style={ this.styles.subheaderLink }>
 									Retro»
 								</Link>

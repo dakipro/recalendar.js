@@ -129,24 +129,19 @@ class PdfConfig {
 		];
 		this.quarterReviewItinerary = [
 			{
-				type: ITINERARY_TEXT_NO_LINE,
-				value: '(No two L days in a row)',
-			},
-
-			{
 				type: ITINERARY_TABLE,
 				value: {
 					rows: 1,
-					columns: 3,
-					columnTitles: [ 'Yearly goal', 'Quarterly goal', 'Monthly goals' ],
+					columns: 2,
+					columnTitles: [ 'Yearly goal', 'Quarterly goals'],
 				},
 			},
 
 			{
 				type: ITINERARY_ITEM,
-				value: 'How aligned was I on goals?',
+				value: 'How aligned was I on quarter, and year goals?',
 			},
-			{ type: ITINERARY_LINES, value: 1 },
+			{ type: ITINERARY_LINES, value: 3 },
 			{
 				type: ITINERARY_ITEM,
 				value: '3 great things I made happen:',
@@ -156,7 +151,7 @@ class PdfConfig {
 				type: ITINERARY_ITEM,
 				value: 'Biggest struggle was:',
 			},
-			{ type: ITINERARY_LINES, value: 1 },
+			{ type: ITINERARY_LINES, value: 2 },
 			{
 				type: ITINERARY_ITEM,
 				value: '... and how would I advise best friend:',
@@ -167,21 +162,9 @@ class PdfConfig {
 				type: ITINERARY_ITEM,
 				value: '3 things I learned about myself:',
 			},
-			{ type: ITINERARY_LINES, value: 1 },
+			{ type: ITINERARY_LINES, value: 2 },
 
-			{
-				type: ITINERARY_ITEM,
-				value: 'Someone I really connected with (describe memory):',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-
-			{
-				type: ITINERARY_ITEM,
-				value: 'The biggest decision I made that I will stick to:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-
-			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next month goals' },
+			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next quarter goals' },
 		];
 		this.monthItinerary = [
 			{
@@ -486,10 +469,84 @@ class PdfConfig {
 		this.pageSize = [ 445, 592 ]; // [ '157mm', '209mm' ];
 		this.specialDates = [
 
-			// TODO: enter special dates, birthdays, red days in norway etc
+			{
+				date: '01-15',
+				value: 'Biljana Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
+			{
+				date: '08-27',
+				value: 'Filip Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
 			{
 				date: '01-01',
-				value: t( 'special-dates.example1', { ns: 'config' } ),
+				value: 'Nyttårsdag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '03-20',
+				value: 'Palmesøndag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '03-27',
+				value: 'Skjærtorsdag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '03-28',
+				value: 'Langfredag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '03-30',
+				value: 'Første påskedag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '03-31',
+				value: 'Andre påskedag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '05-01',
+				value: 'Arbeidernes dag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '05-17',
+				value: 'Grunnlovsdagen',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '05-29',
+				value: 'Kristi himmelfartsdag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '06-08',
+				value: 'Første pinsedag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '06-09',
+				value: 'Andre pinsedag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '12-24',
+				value: 'Julaften',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '12-25',
+				value: 'Første juledag',
+				type: HOLIDAY_DAY_TYPE,
+			},
+			{
+				date: '12-26',
+				value: 'Andre juledag',
 				type: HOLIDAY_DAY_TYPE,
 			},
 		];

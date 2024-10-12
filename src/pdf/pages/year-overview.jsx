@@ -55,25 +55,26 @@ class YearOverviewPage extends React.Component {
 
 	render() {
 		const { config, startDate } = this.props;
+		const quarterDate = startDate.startOf( 'year' ); // First month of quarter 1
 		return (
 			<Page id={ yearOverviewLink() } size={ config.pageSize }>
 				<View style={ this.styles.yearContainer }>
-					<Link src={ '#' + quarterOverviewLink( '1' ) }
+					<Link src={ '#' + quarterOverviewLink( quarterDate ) }
 						style={ this.styles.quarter }>
-                        Q1 »
+						Q1 »
 					</Link>
-					<Link src={ '#' + quarterOverviewLink( '2' ) }
+					<Link src={ '#' + quarterOverviewLink( quarterDate.add( 3, 'month' ) ) }
 						style={ this.styles.quarter }>
-                        Q2 »
+						Q2 »
 					</Link>
 					<Text style={ this.styles.year }>{startDate.year()}</Text>
-					<Link src={ '#' + quarterOverviewLink( '3' ) }
+					<Link src={ '#' + quarterOverviewLink( quarterDate.add( 6, 'month' ) ) }
 						style={ this.styles.quarter }>
-                        Q3 »
+						Q3 »
 					</Link>
-					<Link src={ '#' + quarterOverviewLink( '4' ) }
+					<Link src={ '#' + quarterOverviewLink( quarterDate.add( 9, 'month' ) ) }
 						style={ this.styles.quarter }>
-                        Q4 »
+						Q4 »
 					</Link>
 				</View>
 				<View style={ this.styles.calendars }>{this.renderCalendars()}</View>

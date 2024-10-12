@@ -7,11 +7,12 @@ import PdfConfig from '~/pdf/config';
 import DayPage from '~/pdf/pages/day';
 import LastPage from '~/pdf/pages/last';
 import MonthOverviewPage from '~/pdf/pages/month-overview';
+import MonthRetrospectivePage from '~/pdf/pages/month-retrospective.jsx';
+import QuarterOverviewPage from '~/pdf/pages/quarter-overview.jsx';
 import WeekOverviewPage from '~/pdf/pages/week-overview';
 import WeekRetrospectivePage from '~/pdf/pages/week-retrospective';
 import YearOverviewPage from '~/pdf/pages/year-overview';
-import MonthRetrospectivePage from "~/pdf/pages/month-retrospective.jsx";
-import QuarterOverviewPage from "~/pdf/pages/quarter-overview.jsx";
+import QuarterRetrospectivePage from "~/pdf/pages/quarter-retrospective.jsx";
 
 class RecalendarPdf extends React.Component {
 	styles = StyleSheet.create( {
@@ -32,11 +33,17 @@ class RecalendarPdf extends React.Component {
 		const endOfWeek = startOfWeek.add( 1, 'weeks' );
 		while ( currentDate.isBefore( endOfWeek ) ) {
 			if ( config.isMonthOverviewEnabled && currentDate.date() === 1 ) {
-
-				if ( [1, 4, 7, 10].includes( currentDate.month() + 1 ) && currentDate.date() === 1 ) {
+				if ( [ 1, 4, 7, 10 ].includes( currentDate.month() + 1 ) && currentDate.date() === 1 ) {
 					weekPages.push(
 						<QuarterOverviewPage
 							key={ 'quarter-overview-' + currentDate.unix() }
+							date={ currentDate }
+							config={ config }
+						/>,
+					);
+					weekPages.push(
+						<QuarterRetrospectivePage
+							key={ 'quarter-retrospective-' + currentDate.unix() }
 							date={ currentDate }
 							config={ config }
 						/>,

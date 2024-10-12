@@ -7,11 +7,11 @@ import { withTranslation } from 'react-i18next';
 import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import { monthRetrospectiveLink, quarterOverviewLink } from '~/pdf/lib/links';
+import { quarterOverviewLink, quarterRetrospectiveLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
-class QuarterOverviewPage extends React.Component {
+class QuarterRetrospectivePage extends React.Component {
 	constructor( props ) {
 		super( props );
 
@@ -38,7 +38,6 @@ class QuarterOverviewPage extends React.Component {
 					padding: '10 5',
 					fontSize: 35,
 					fontWeight: 'bold',
-					marginLeft: 'auto',
 				},
 				subheaderBlock: {
 					flexDirection: 'column',
@@ -70,31 +69,38 @@ class QuarterOverviewPage extends React.Component {
 
 	render() {
 		const { date, config } = this.props;
-		const itemsByPage = splitItemsByPages( config.monthItinerary );
+		const itemsByPage = splitItemsByPages( config.quarterReviewItinerary );
+		const monthsInQuarter = [ 0, 1, 2 ].map( offset => date.startOf( 'quarter' ).add( offset, 'month' ) );
+
 		return (
 			<>
-				<Page id={ quarterOverviewLink( 'Q' + date.format( 'Q' ) ) } size={ config.pageSize }>
+				<Page id={ quarterRetrospectiveLink( date ) } size={ config.pageSize }>
 					<View style={ this.styles.page }>
+
 						<View style={ this.styles.header }>
-							<View style={ this.styles.subheaderBlock }>
-								<Link src={ '#' + monthRetrospectiveLink( date ) } style={ this.styles.subheaderLink }>
-                                    Quarter retro »
+							<View style={ this.styles.meta }>
+								<Link
+									src={ '#' + quarterOverviewLink( date ) }
+									style={ this.styles.subheaderLink }>
+									<Text style={ this.styles.title }>Q{date.format( 'Q' ) }></Text>
 								</Link>
 							</View>
 
-							<View style={ this.styles.meta }>
-								<Text style={ this.styles.title }>Q{date.format( 'Q' )}</Text>
-							</View>
+							{monthsInQuarter.map( ( monthDate, index ) => (
+								<MiniCalendar
+									key={ index }
+									date={ monthDate }
+									highlightMode={ HIGHLIGHT_NONE }
+									config={ config }
+								/>
+							) )}
 
-							<MiniCalendar
-								date={ date }
-								highlightMode={ HIGHLIGHT_NONE }
-								config={ config }
-							/>
 						</View>
 						<View style={ this.styles.content }>
+							dalibor
 							<Itinerary items={ itemsByPage[ 0 ] } />
 						</View>
+
 
 					</View>
 				</Page>
@@ -110,10 +116,10 @@ class QuarterOverviewPage extends React.Component {
 	}
 }
 
-QuarterOverviewPage.propTypes = {
+QuarterRetrospectivePage.propTypes = {
 	config: PropTypes.instanceOf( PdfConfig ).isRequired,
 	date: PropTypes.instanceOf( dayjs ).isRequired,
 	t: PropTypes.func.isRequired,
 };
 
-export default withTranslation( 'pdf' )( QuarterOverviewPage );
+export default withTranslation( 'pdf' )( QuarterRetrospectivePage );

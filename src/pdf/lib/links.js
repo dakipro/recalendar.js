@@ -47,11 +47,11 @@ function findDayOfWeek( needle ) {
 	return ( { dayOfWeek } ) => dayOfWeek === needle;
 }
 
-export function quarterOverviewLink( quarter ) {
-	return 'quarter-' + quarter;
+export function quarterOverviewLink( date ) {
+	return 'quarter-' + date.format( 'Q' );
 }
-export function quarterRetrospectiveLink( quarter ) {
-	return 'quarter-retrospective-' + quarter;
+export function quarterRetrospectiveLink( date ) {
+	return 'quarter-retrospective-' + date.format( 'Q' );
 }
 export function monthOverviewLink( date, config ) {
 	if ( config.isMonthOverviewEnabled ) {
