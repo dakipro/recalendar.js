@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import { monthOverviewLink, monthRetrospectiveLink, quarterOverviewLink } from '~/pdf/lib/links';
+import { monthRetrospectiveLink, quarterOverviewLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 

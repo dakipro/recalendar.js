@@ -22,8 +22,8 @@ class YearOverviewPage extends React.Component {
 		quarter: {
 			fontSize: 24,
 			marginHorizontal: 10,
-            textDecoration: 'none',
-            color: 'black',
+			textDecoration: 'none',
+			color: 'black',
 		},
 		calendars: {
 			flexDirection: 'row',
@@ -58,23 +58,23 @@ class YearOverviewPage extends React.Component {
 		return (
 			<Page id={ yearOverviewLink() } size={ config.pageSize }>
 				<View style={ this.styles.yearContainer }>
-				<Link src={ '#' + quarterOverviewLink( 'Q1' ) }
-                        style={ this.styles.quarter }>
+					<Link src={ '#' + quarterOverviewLink( '1' ) }
+						style={ this.styles.quarter }>
                         Q1 »
-                    </Link>
-                    <Link src={ '#' + quarterOverviewLink( 'Q2' ) }
-                        style={ this.styles.quarter }>
+					</Link>
+					<Link src={ '#' + quarterOverviewLink( '2' ) }
+						style={ this.styles.quarter }>
                         Q2 »
-                    </Link>
-                    <Text style={ this.styles.year }>{startDate.year()}</Text>
-                    <Link src={ '#' + quarterOverviewLink( 'Q3' ) }
-                        style={ this.styles.quarter }>
+					</Link>
+					<Text style={ this.styles.year }>{startDate.year()}</Text>
+					<Link src={ '#' + quarterOverviewLink( '3' ) }
+						style={ this.styles.quarter }>
                         Q3 »
-                    </Link>
-                    <Link src={ '#' + quarterOverviewLink( 'Q4' ) }
-                        style={ this.styles.quarter }>
+					</Link>
+					<Link src={ '#' + quarterOverviewLink( '4' ) }
+						style={ this.styles.quarter }>
                         Q4 »
-                    </Link>
+					</Link>
 				</View>
 				<View style={ this.styles.calendars }>{this.renderCalendars()}</View>
 			</Page>

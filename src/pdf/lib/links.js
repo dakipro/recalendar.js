@@ -50,6 +50,9 @@ function findDayOfWeek( needle ) {
 export function quarterOverviewLink( quarter ) {
 	return 'quarter-' + quarter;
 }
+export function quarterRetrospectiveLink( quarter ) {
+	return 'quarter-retrospective-' + quarter;
+}
 export function monthOverviewLink( date, config ) {
 	if ( config.isMonthOverviewEnabled ) {
 		return 'month-' + date.format( 'MMYYYY' );

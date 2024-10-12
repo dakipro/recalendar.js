@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import Itinerary from '~/pdf/components/itinerary';
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import { monthOverviewLink, monthRetrospectiveLink, quarterOverviewLink } from '~/pdf/lib/links';
+import { quarterOverviewLink, quarterRetrospectiveLink } from '~/pdf/lib/links';
 import { pageStyle } from '~/pdf/styles';
 import { splitItemsByPages } from '~/pdf/utils';
 
@@ -70,15 +70,19 @@ class QuarterOverviewPage extends React.Component {
 
 	render() {
 		const { date, config } = this.props;
-		const itemsByPage = splitItemsByPages( config.monthItinerary );
+		const itemsByPage = splitItemsByPages( config.quarterItinerary );
+		const monthsInQuarter = [ 0, 1, 2 ].map( offset => date.startOf( 'quarter' ).add( offset, 'month' ) );
+
 		return (
 			<>
-				<Page id={ quarterOverviewLink( 'Q' + date.format( 'Q' ) ) } size={ config.pageSize }>
+				<Page id={ quarterOverviewLink( date.format( 'Q' ) ) } size={ config.pageSize }>
 					<View style={ this.styles.page }>
 						<View style={ this.styles.header }>
 							<View style={ this.styles.subheaderBlock }>
-								<Link src={ '#' + monthRetrospectiveLink( date ) } style={ this.styles.subheaderLink }>
-                                    Quarter retro »
+								<Link
+									src={ '#' + quarterRetrospectiveLink( date.format( 'Q' ) ) }
+									style={ this.styles.subheaderLink }>
+									Retro»
 								</Link>
 							</View>
 
@@ -86,11 +90,15 @@ class QuarterOverviewPage extends React.Component {
 								<Text style={ this.styles.title }>Q{date.format( 'Q' )}</Text>
 							</View>
 
-							<MiniCalendar
-								date={ date }
-								highlightMode={ HIGHLIGHT_NONE }
-								config={ config }
-							/>
+							{monthsInQuarter.map( ( monthDate, index ) => (
+								<MiniCalendar
+									key={ index }
+									date={ monthDate }
+									highlightMode={ HIGHLIGHT_NONE }
+									config={ config }
+								/>
+							) )}
+
 						</View>
 						<View style={ this.styles.content }>
 							<Itinerary items={ itemsByPage[ 0 ] } />

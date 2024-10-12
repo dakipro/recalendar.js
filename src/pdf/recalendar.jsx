@@ -32,6 +32,17 @@ class RecalendarPdf extends React.Component {
 		const endOfWeek = startOfWeek.add( 1, 'weeks' );
 		while ( currentDate.isBefore( endOfWeek ) ) {
 			if ( config.isMonthOverviewEnabled && currentDate.date() === 1 ) {
+
+				if ( [1, 4, 7, 10].includes( currentDate.month() + 1 ) && currentDate.date() === 1 ) {
+					weekPages.push(
+						<QuarterOverviewPage
+							key={ 'quarter-overview-' + currentDate.unix() }
+							date={ currentDate }
+							config={ config }
+						/>,
+					);
+				}
+
 				weekPages.push(
 					<MonthOverviewPage
 						key={ 'month-overview-' + currentDate.unix() }
@@ -43,16 +54,6 @@ class RecalendarPdf extends React.Component {
 				weekPages.push(
 					<MonthRetrospectivePage
 						key={ 'month-retrospective-' + currentDate.unix() }
-						date={ currentDate }
-						config={ config }
-					/>,
-				);
-			}
-			
-			 if ( [1, 4, 7, 10].includes( currentDate.month() + 1 ) && currentDate.date() === 1 ) {
-				weekPages.push(
-					<QuarterOverviewPage
-						key={ 'quarter-overview-' + currentDate.unix() }
 						date={ currentDate }
 						config={ config }
 					/>,
