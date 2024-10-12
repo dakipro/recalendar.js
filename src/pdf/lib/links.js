@@ -47,6 +47,9 @@ function findDayOfWeek( needle ) {
 	return ( { dayOfWeek } ) => dayOfWeek === needle;
 }
 
+export function quarterOverviewLink( quarter ) {
+	return 'quarter-' + quarter;
+}
 export function monthOverviewLink( date, config ) {
 	if ( config.isMonthOverviewEnabled ) {
 		return 'month-' + date.format( 'MMYYYY' );

@@ -179,6 +179,116 @@ class PdfConfig {
 
 			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next month goals' },
 		];
+		this.quarterItinerary = [
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 2,
+					columnTitles: [ '3 years goal', 'Yearly goals' ],
+				},
+			},
+			{
+				type: ITINERARY_ITEM,
+				value: 'Monthly 3 BIG goals (80:20, or use prioritisation down):',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '3 obstacles, and how will I overcome them:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'Best way I can prepare to show up PRO this month:',
+			},
+			{ type: ITINERARY_LINES, value: 2 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'What could I learn?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'Who will make a difference?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 2,
+					columns: 2,
+					titles: [ 'Urgent', 'Non-Urgent' ],
+					columnTitles: [ 'Important', 'Unimportant' ],
+					cellValues: [
+						[ 'Do it now', 'Schedule' ],
+						[ 'Delegate', 'Delete' ],
+					],
+				},
+			},
+
+		];
+		this.quarterItinerary = [
+			{
+				type: ITINERARY_TEXT_NO_LINE,
+				value: '(No two L days in a row)',
+			},
+
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 3,
+					columnTitles: [ 'Yearly goal', 'Quarterly goal', 'Monthly goals' ],
+				},
+			},
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'How aligned was I on goals?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '3 great things I made happen:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Biggest struggle was:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '... and how would I advise best friend:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '3 things I learned about myself:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'Someone I really connected with (describe memory):',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'The biggest decision I made that I will stick to:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next month goals' },
+		];
 
 		this.isWeekOverviewEnabled = true;
 		this.todos = [];
@@ -227,6 +337,70 @@ class PdfConfig {
 					],
 				},
 			},
+		];
+
+		this.isWeekRetrospectiveEnabled = true;
+
+		this.weekRetrospectiveItinerary = [
+			{
+				type: ITINERARY_TEXT_NO_LINE,
+				value: '(No two L days in a row)',
+			},
+
+			{
+				type: ITINERARY_TABLE,
+				value: {
+					rows: 1,
+					columns: 3,
+					columnTitles: [ 'Quarterly goal', 'Monthly goals', 'Weekly goals' ],
+				},
+			},
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'How aligned was I on goals?',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '3 great things that happened:',
+			},
+			{ type: ITINERARY_LINES, value: 3 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Biggest struggle was:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: '... and how would I advise best friend:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '2 things I learned about myself:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '2 things I learned about others:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: '1 decision I could have made:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+
+			{
+				type: ITINERARY_ITEM,
+				value: 'Unfinished business:',
+			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next weeks goals' },
 		];
 
 		let dayOfWeek = this.firstDayOfWeek;
@@ -302,69 +476,7 @@ class PdfConfig {
 			dayOfWeek = ++dayOfWeek % 7;
 			return itinerary;
 		} );
-		this.isWeekRetrospectiveEnabled = true;
 
-		this.weekRetrospectiveItinerary = [
-			{
-				type: ITINERARY_TEXT_NO_LINE,
-				value: '(No two L days in a row)',
-			},
-
-			{
-				type: ITINERARY_TABLE,
-				value: {
-					rows: 1,
-					columns: 3,
-					columnTitles: [ 'Quarterly goal', 'Monthly goals', 'Weekly goals' ],
-				},
-			},
-
-			{
-				type: ITINERARY_ITEM,
-				value: 'How aligned was I on goals?',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-			{
-				type: ITINERARY_ITEM,
-				value: '3 great things that happened:',
-			},
-			{ type: ITINERARY_LINES, value: 3 },
-			{
-				type: ITINERARY_ITEM,
-				value: 'Biggest struggle was:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-			{
-				type: ITINERARY_ITEM,
-				value: '... and how would I advise best friend:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-
-			{
-				type: ITINERARY_ITEM,
-				value: '2 things I learned about myself:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-
-			{
-				type: ITINERARY_ITEM,
-				value: '2 things I learned about others:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-
-			{
-				type: ITINERARY_ITEM,
-				value: '1 decision I could have made:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-
-			{
-				type: ITINERARY_ITEM,
-				value: 'Unfinished business:',
-			},
-			{ type: ITINERARY_LINES, value: 1 },
-			{ type: ITINERARY_TEXT_NO_LINE, value: '[ ] Plan next weeks goals' },
-		];
 		// See https://github.com/diegomura/react-pdf/issues/2006
 		this.pageSize = [ 445, 592 ]; // [ '157mm', '209mm' ];
 		this.specialDates = [

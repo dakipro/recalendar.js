@@ -1,18 +1,29 @@
-import { Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Link, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import dayjs from 'dayjs/esm';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import MiniCalendar, { HIGHLIGHT_NONE } from '~/pdf/components/mini-calendar';
 import PdfConfig from '~/pdf/config';
-import { yearOverviewLink } from '~/pdf/lib/links';
+import { quarterOverviewLink, yearOverviewLink } from '~/pdf/lib/links';
 
 class YearOverviewPage extends React.Component {
 	styles = StyleSheet.create( {
+		yearContainer: {
+			flexDirection: 'row',
+			alignItems: 'center',
+			justifyContent: 'center',
+		},
 		year: {
 			fontSize: 48,
 			fontWeight: 'bold',
 			textAlign: 'center',
+		},
+		quarter: {
+			fontSize: 24,
+			marginHorizontal: 10,
+            textDecoration: 'none',
+            color: 'black',
 		},
 		calendars: {
 			flexDirection: 'row',
@@ -46,7 +57,25 @@ class YearOverviewPage extends React.Component {
 		const { config, startDate } = this.props;
 		return (
 			<Page id={ yearOverviewLink() } size={ config.pageSize }>
-				<Text style={ this.styles.year }>{startDate.year()}</Text>
+				<View style={ this.styles.yearContainer }>
+				<Link src={ '#' + quarterOverviewLink( 'Q1' ) }
+                        style={ this.styles.quarter }>
+                        Q1 »
+                    </Link>
+                    <Link src={ '#' + quarterOverviewLink( 'Q2' ) }
+                        style={ this.styles.quarter }>
+                        Q2 »
+                    </Link>
+                    <Text style={ this.styles.year }>{startDate.year()}</Text>
+                    <Link src={ '#' + quarterOverviewLink( 'Q3' ) }
+                        style={ this.styles.quarter }>
+                        Q3 »
+                    </Link>
+                    <Link src={ '#' + quarterOverviewLink( 'Q4' ) }
+                        style={ this.styles.quarter }>
+                        Q4 »
+                    </Link>
+				</View>
 				<View style={ this.styles.calendars }>{this.renderCalendars()}</View>
 			</Page>
 		);

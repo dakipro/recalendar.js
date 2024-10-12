@@ -11,6 +11,7 @@ import WeekOverviewPage from '~/pdf/pages/week-overview';
 import WeekRetrospectivePage from '~/pdf/pages/week-retrospective';
 import YearOverviewPage from '~/pdf/pages/year-overview';
 import MonthRetrospectivePage from "~/pdf/pages/month-retrospective.jsx";
+import QuarterOverviewPage from "~/pdf/pages/quarter-overview.jsx";
 
 class RecalendarPdf extends React.Component {
 	styles = StyleSheet.create( {
@@ -47,6 +48,17 @@ class RecalendarPdf extends React.Component {
 					/>,
 				);
 			}
+			
+			 if ( [1, 4, 7, 10].includes( currentDate.month() + 1 ) && currentDate.date() === 1 ) {
+				weekPages.push(
+					<QuarterOverviewPage
+						key={ 'quarter-overview-' + currentDate.unix() }
+						date={ currentDate }
+						config={ config }
+					/>,
+				);
+			}
+
 			const key = 'day-' + currentDate.unix();
 			weekPages.push( <DayPage key={ key } date={ currentDate } config={ config } /> );
 			currentDate = currentDate.add( 1, 'days' );
