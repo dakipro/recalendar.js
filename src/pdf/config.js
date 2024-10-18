@@ -54,7 +54,8 @@ export function hydrateFromObject( object ) {
 
 class PdfConfig {
 	constructor( configOverrides = {} ) {
-		this.year = dayjs().year();
+		this.year = dayjs().add(1, 'year').year();
+		// this.year = dayjs().year();
 		this.month = 0;
 		this.firstDayOfWeek = dayjs.localeData().firstDayOfWeek();
 		this.weekendDays = [ 0, 6 ];
@@ -475,10 +476,40 @@ class PdfConfig {
 				type: EVENT_DAY_TYPE,
 			},
 			{
+				date: '05-19',
+				value: 'Anastasija (Daca) Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
+			{
 				date: '08-27',
 				value: 'Filip Rodjendan',
 				type: EVENT_DAY_TYPE,
 			},
+
+			{
+				date: '09-19',
+				value: 'Daliborka Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
+
+			{
+				date: '11-13',
+				value: 'Dusan tata Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
+
+			{
+				date: '12-10',
+				value: 'Dragica Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
+			{
+				date: '11-15',
+				value: 'Ivica Rodjendan',
+				type: EVENT_DAY_TYPE,
+			},
+
+
 			{
 				date: '01-01',
 				value: 'Nyttårsdag',

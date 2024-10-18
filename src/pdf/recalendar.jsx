@@ -9,10 +9,10 @@ import LastPage from '~/pdf/pages/last';
 import MonthOverviewPage from '~/pdf/pages/month-overview';
 import MonthRetrospectivePage from '~/pdf/pages/month-retrospective.jsx';
 import QuarterOverviewPage from '~/pdf/pages/quarter-overview.jsx';
+import QuarterRetrospectivePage from '~/pdf/pages/quarter-retrospective.jsx';
 import WeekOverviewPage from '~/pdf/pages/week-overview';
 import WeekRetrospectivePage from '~/pdf/pages/week-retrospective';
 import YearOverviewPage from '~/pdf/pages/year-overview';
-import QuarterRetrospectivePage from "~/pdf/pages/quarter-retrospective.jsx";
 
 class RecalendarPdf extends React.Component {
 	styles = StyleSheet.create( {
@@ -113,7 +113,7 @@ class RecalendarPdf extends React.Component {
 			}
 		}
 
-		pageList.push( <LastPage key="last" config={ this.props.config } /> );
+		// pageList.push( <LastPage key="last" config={ this.props.config } /> );
 
 		return pageList;
 	}
