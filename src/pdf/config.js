@@ -66,9 +66,12 @@ class PdfConfig {
 		this.isMonthOverviewEnabled = true;
 		this.monthlyHabits = [
 			'Wins',
+			'80/20',
+			'8h Sleep',
 		];
 		this.weeklyHabits = [
 			'Wins',
+			'80/20',
 		];
 
 
@@ -408,30 +411,42 @@ class PdfConfig {
 				{
 					type: ITINERARY_TEXT_NO_LINE,
 					value:
-						'[ ] Visualise (excellence, procrastination, goals)        ' +
-						'[ ] Excercise (Yoga, rubber, stretches)           ' +
-						'[ ] Identity (dream team)',
+						'[ ] Visualise (excellence, procrastination, goals)      ' +
+						'[ ] Excercise (Yoga, rubber, stretches)          ' +
+						'[ ] One 80/20 (mark 1 of daily 3)',
 				},
 				{
 					type: ITINERARY_TEXT_NO_LINE,
 					value:
-						'[ ] Meditate (relax, past, future, enjoy, present)        ' +
-						'[ ] Affirm (So good they can\'t ignore you)     ' +
-						'[ ] Read (Book, course)',
+						'[ ] Meditate (relax, past, future, enjoy, present)      ' +
+						'[ ] Affirm (So good they can\'t ignore you)   ' +
+						'[ ] Read (Book, course, Reader)',
 				},
+
+				{
+					type: ITINERARY_TEXT_NO_LINE,
+					value: ' ',
+				},
+
+				
+				{ type: ITINERARY_ITEM, value: 'Weekly goal:' },
+				{ type: ITINERARY_ITEM, value: 'Daily 3:' },
+				{ type: ITINERARY_LINES, value: 1 },
+
 				{
 					type: ITINERARY_TABLE,
 					value: {
-						rows: 4,
-						columns: 1,
-						columnTitles: [],
-						titles: [ 'Morning', 'Maker', 'Manager', 'Evening' ],
+						rows: 1,
+						columns: 4,
+						columnTitles: ['Morning', 'Maker', 'Manager', 'Evening'],
+						titles: [  ],
 					},
 				},
 
+
 				{ type: ITINERARY_TEXT_NO_LINE, value: '( ↓ Retrospective ↓ )' +
-						'                                                       ' +
-						'Was this an olympic day?       [ W ]        [ L ]     .', alignment: 'right' },
+						'                                                                   ' +
+						'Was this an olympic day?  [ ] W    [ ] L  .', alignment: 'right' },
 
 				{ type: ITINERARY_NEW_PAGE },
 				{ type: ITINERARY_ITEM, value: 'Why was this olympic WIN? Or why was it LEARN?' },
