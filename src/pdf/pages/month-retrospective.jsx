@@ -42,6 +42,12 @@ class MonthRetrospectivePage extends React.Component {
 					marginLeft: 'auto',
 					textDecoration: 'none',
 				},
+				subtitle: {
+					color: 'black',
+					fontSize: 15,
+					marginLeft: 'auto',
+					textDecoration: 'none',
+				},
 				subheaderBlock: {
 					flexDirection: 'column',
 					justifyContent: 'flex-end',
@@ -79,9 +85,9 @@ class MonthRetrospectivePage extends React.Component {
 							<View style={ this.styles.meta }>
 								<Link src={ '#' + monthOverviewLink( date, config ) }
 									  style={ this.styles.title }>
-									{date.format( 'MMMM' ) }&gt;&gt;
+									{date.format( 'MMMM' ) } »
 								</Link>
-								<Text style={ this.styles.title }>
+								<Text style={ this.styles.subtitle }>
 									(Retro)
 								</Text>
 								<View style={ this.styles.subheaderBlock }>

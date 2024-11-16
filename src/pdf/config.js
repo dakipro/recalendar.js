@@ -181,7 +181,12 @@ class PdfConfig {
 			},
 			{
 				type: ITINERARY_ITEM,
-				value: 'Monthly 3 BIG goals (80:20, or use prioritisation down):',
+				value: 'Month goal:',
+			},
+			{ type: ITINERARY_LINES, value: 2 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Monthly 3 BIG tasks (one 80:20):',
 			},
 			{ type: ITINERARY_LINES, value: 3 },
 
@@ -210,18 +215,11 @@ class PdfConfig {
 			{ type: ITINERARY_LINES, value: 1 },
 
 			{
-				type: ITINERARY_TABLE,
-				value: {
-					rows: 2,
-					columns: 2,
-					titles: [ 'Urgent', 'Non-Urgent' ],
-					columnTitles: [ 'Important', 'Unimportant' ],
-					cellValues: [
-						[ 'Do it now', 'Schedule' ],
-						[ 'Delegate', 'Delete' ],
-					],
-				},
+				type: ITINERARY_ITEM,
+				value: 'Family plans:',
 			},
+			{ type: ITINERARY_LINES, value: 2 },
+
 
 		];
 		this.monthReflectionItinerary = [
@@ -293,9 +291,12 @@ class PdfConfig {
 					columnTitles: [ 'Yearly goal', 'Quarterly goal', 'Monthly goals' ],
 				},
 			},
+			
+			{ type: ITINERARY_ITEM, value: 'Weekly goal:' },
+			{ type: ITINERARY_LINES, value: 2 },
 			{
 				type: ITINERARY_ITEM,
-				value: 'Week 3 BIG ones (80:20, or use prioritisation down):',
+				value: 'Week 3 BIG ones (one is 80:20):',
 			},
 			{ type: ITINERARY_LINES, value: 2 },
 
@@ -309,26 +310,18 @@ class PdfConfig {
 				type: ITINERARY_ITEM,
 				value: 'Who will make a difference?',
 			},
+			{ type: ITINERARY_LINES, value: 1 },
+			{
+				type: ITINERARY_ITEM,
+				value: 'Family & Weekend plans:',
+			},
 			{ type: ITINERARY_LINES, value: 2 },
 
 			{
 				type: ITINERARY_TEXT_NO_LINE,
-				value: '[ ] Block calendar, [ ] Ask someone for help',
+				value: '[ ] Block calendar, [ ] Ask someone for help, [ ] do I travel?',
 			},
 
-			{
-				type: ITINERARY_TABLE,
-				value: {
-					rows: 2,
-					columns: 2,
-					titles: [ 'Urgent', 'Non-Urgent' ],
-					columnTitles: [ 'Important', 'Unimportant' ],
-					cellValues: [
-						[ 'Do it now', 'Schedule' ],
-						[ 'Delegate', 'Delete' ],
-					],
-				},
-			},
 		];
 
 		this.isWeekRetrospectiveEnabled = true;
@@ -432,6 +425,12 @@ class PdfConfig {
 				{ type: ITINERARY_ITEM, value: 'Weekly goal:' },
 				{ type: ITINERARY_ITEM, value: 'Daily 3:' },
 				{ type: ITINERARY_LINES, value: 1 },
+				
+				{ type: ITINERARY_ITEM, value: 'What I feel doing:' },
+				{ type: ITINERARY_ITEM, value: 'Who needs my A-game:' },
+				{ type: ITINERARY_ITEM, value: 'Connect to someone:' },
+				{ type: ITINERARY_ITEM, value: 'Skill to practice:' },
+				{ type: ITINERARY_ITEM, value: 'Coach advice:' },
 
 				{
 					type: ITINERARY_TABLE,
