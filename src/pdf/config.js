@@ -456,7 +456,7 @@ class PdfConfig {
 				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'A situation or task I handled well today was…' },
 				{ type: ITINERARY_LINES, value: 2 },
-				{ type: ITINERARY_ITEM, value: 'Something I realized or learned today was…' },
+				{ type: ITINERARY_ITEM, value: 'I am thankful for…' },
 				{ type: ITINERARY_LINES, value: 2 },
 				{ type: ITINERARY_ITEM, value: 'Something that could have helped me feel more connected to others would have been…' },
 				{ type: ITINERARY_LINES, value: 2 },
